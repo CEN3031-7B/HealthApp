@@ -1,92 +1,54 @@
-<div class="container" ng-controller="HeaderController">
+<div class="container" ng-controller="AuthenticationController">
   <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-    		<button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
-     			 <span class="sr-only">Toggle navigation</span>
-      			<span class="icon-bar"></span>
-      			<span class="icon-bar"></span>
-     			 <span class="icon-bar"></span>
-    		</button>
-    			<a ui-sref="home" class="navbar-brand">Health Risk Asessment</a>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
+   			  <span class="sr-only">Toggle navigation</span>
+    			<span class="icon-bar"></span>
+    			<span class="icon-bar"></span>
+   			  <span class="icon-bar"></span>
+  		  </button>
+          <a ui-sref="home" class="navbar-brand">Health Risk Assessment</a>
   		</div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
-              <div class="form-group">
-                <label class="sr-only" for="exampleInputEmail3">Username</label>
-                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label class="sr-only" for="exampleInputPassword3">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
-              </div>
-              <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
-                <div class="form-group">
-  			             <a ui-sref="authentication.signin">Log In</a>
-                </div>
-             </ul>
-            </form>
-          </div>
+      <form name="userForm" class ="form-inline" ng-hide="authentication.user" ng-submit="signin(userForm.$valid)">
+        <div id = "userInput">
+          <label class="sr-only">Username</label>
+          <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="Username" lowercase required>
+          <label class="sr-only">Password</label>
+          <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" required>
+          <button type="submit" class="btn btn-primary">Sign in</button>
         </div>
-      </nav>
-
-  <!--
-  <div class="navbar-header">
-    <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a ui-sref="home" class="navbar-brand">Health Risk Asessment</a>
-  </div>
-  <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
-
-
-    <ul class="nav navbar-nav" ng-if="menu.shouldRender(authentication.user);">
-      <li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);" ng-switch="item.type" ng-class="{ active: $state.includes(item.state), dropdown: item.type === 'dropdown' }" class="{{item.class}}" dropdown="item.type === 'dropdown'">
-        <a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
-        <ul ng-switch-when="dropdown" class="dropdown-menu">
-          <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
-            <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
-          </li>
-        </ul>
-        <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
-      </li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
-      <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">Log In</a>
-      </li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
-      <li class="dropdown" dropdown>
-        <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
-          <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
-          <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu" role="menu">
-          <li ui-sref-active="active">
-            <a ui-sref="settings.profile">Edit Profile</a>
-          </li>
-          <li ui-sref-active="active">
-            <a ui-sref="settings.picture">Change Profile Picture</a>
-          </li>
-          <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
-            <a ui-sref="settings.password">Change Password</a>
-          </li>
-          <li ui-sref-active="active">
-            <a ui-sref="settings.accounts">Manage Social Accounts</a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="/api/auth/signout" target="_self">Signout</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+      </form>
+      <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
+        <li class="dropdown" dropdown>
+          <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
+            <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
+            <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <!--  Possible features to add
+            <li ui-sref-active="active">
+              <a ui-sref="settings.profile">Edit Profile</a>
+            </li>
+            <li ui-sref-active="active">
+              <a ui-sref="settings.picture">Change Profile Picture</a>
+            </li>
+          -->
+            <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
+              <a ui-sref="settings.password">Change Password</a>
+            </li>
+            <!-- Possible feature to add
+            <li ui-sref-active="active">
+              <a ui-sref="settings.accounts">Manage Social Accounts</a>
+            </li>
+          -->
+            <li class="divider"></li>
+            <li>
+              <a href="/api/auth/signout" target="_self">Signout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </nav>
--->
 </div>
