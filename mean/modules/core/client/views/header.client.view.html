@@ -1,6 +1,6 @@
 <div class="container" ng-controller="AuthenticationController">
   <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
+    <div class="container">
       <div class="navbar-header">
         <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
    			  <span class="sr-only">Toggle navigation</span>
@@ -17,6 +17,7 @@
           <label class="sr-only">Password</label>
           <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" required>
           <button type="submit" class="btn btn-primary">Sign in</button>
+          &nbsp; or&nbsp;
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
@@ -50,5 +51,4 @@
         </li>
       </ul>
     </div>
-  </nav>
 </div>
