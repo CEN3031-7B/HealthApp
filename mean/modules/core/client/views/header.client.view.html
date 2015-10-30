@@ -37,6 +37,11 @@
             <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
               <a ui-sref="settings.password">Change Password</a>
             </li>
+            <!-- temporary access link to patients page -->
+            <li class="divider"></li>
+            <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
+              <a href="/patients">Patient Portal</a>
+            </li>
             <!-- Possible feature to add
             <li ui-sref-active="active">
               <a ui-sref="settings.accounts">Manage Social Accounts</a>
