@@ -1,0 +1,15 @@
+<div class="container" ng-controller="PgCtrl">
+  <!-- Survey page -->
+  <div class="surveyPage">
+    {{pages[currentPage-1]}}
+  </div> <!-- /.Survey page -->
+  <!-- Progress bar and pagination-->
+  <progressbar value="updateProgress()" type="primary" min="0" max="100">
+    <span class="sr-only">{{updateProgress()}}% complete</span>
+  </progressbar>
+  <button type="button" class="btn btn-primary" ng-click="goBack()" ng-hide="previousDisabled()">Go Back</button>
+  <button type="button" class="btn btn-primary" ng-click="goNext()">
+    <span ng-hide="nextDisabled()">Save and Continue</span>
+    <span ng-show="nextDisabled()">Save and Submit</span>
+  </button> <!-- /.Progress bar and pagination -->
+</div>

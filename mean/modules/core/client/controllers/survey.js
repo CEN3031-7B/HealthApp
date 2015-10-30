@@ -1,3 +1,5 @@
+'use strict';
+
 var myApp = angular.module('myApp', []);
 
 myApp.controller('PgCtrl', function ($scope){
@@ -26,5 +28,9 @@ myApp.controller('PgCtrl', function ($scope){
       $scope.currentPage--;
     }
   };
+
+  $scope.updateProgress = function() {
+      return ($scope.currentPage-1)/$scope.lastPage*100;
+    };
   
 });
