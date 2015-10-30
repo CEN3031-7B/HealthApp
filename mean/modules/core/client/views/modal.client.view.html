@@ -1,0 +1,22 @@
+<div ng-controller = "ModalController">
+    <script type="text/ng-template" id="myModalContent.html">
+      <div class="modal-header">
+        <h3 class="modal-title">Problem? Let us know</h3>
+      </div>
+      <div class = "modal-body">
+        <form name = "contactForm" ng-submit="sendMail(contactForm.$valid)">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Concerned User" data-ng-model="contact_name" required><br>
+          <label>Email</label>
+          <input type="text" class ="form-control" placeholder="concernedUser@gmail.com" data-ng-model="contact_email" required><br>
+          <label>Message</label>
+          <textarea class="form-control" rows="5" data-ng-model="contact_message" required></textarea><br>
+          <div class = "modal-footer">
+              <button type ="submit" class="btn btn-primary">Send</button>
+              <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </script>
+    <button type="button" class="btn btn-default" ng-click="open('sm')">Contact Us</button>
+</div>
