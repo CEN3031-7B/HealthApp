@@ -1,0 +1,20 @@
+<section ng-controller="PatientsController" ng-init="find()">
+  <div class="page-header">
+    <h1>List of Patients</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="patient in patients" ui-sref="patients.view({patientId: patient._id})" class="list-group-item">
+      <small class="list-group-item-text">
+        Created on
+        <span ng-bind="patient.created | date:'mediumDate'"></span>
+        by
+        <span ng-bind="patient.user.displayName"></span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="patient.title">WHATTTTTT</h4>
+      <p class="list-group-item-text" ng-bind="patient.content"></p>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="patients.$resolved && !patients.length">
+    No patients yet, why don't you <a ui-sref="patients.create">create one</a>?
+  </div>
+</section>
