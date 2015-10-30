@@ -1,0 +1,45 @@
+<div ng-controller="DiseasesController">
+	<div class="page-header">
+		<h1>Add Disease To the Database</h1>
+	</div>
+	<div>
+		<form name="diseaseForm" class="form-horizontal" ng-submit="create(diseaseForm.$valid)" novalidate>
+			<fieldset>
+				<div class="formgroup" show-errors>
+					<label for="diseaseName">Disease Name:</label>
+					<input name="diseaseName" type="text" ng-model="diseaseName" id="diseaseName" class="form-control" placeholder="Disease Name" required>
+					<div ng-messages="diseaseForm.diseaseName.$error" role="alert">
+						<p class="help-block error-text" ng-message="required">Disease Name is required</p>
+					</div>
+				</div>
+				<div class="form-group" ng-repeat="suggestion in suggestions">
+					<h3>Suggested Treatments</h3>
+					<label for="suggestedTreatmentName">Suggested Treatment Name:</label>
+					<input name="suggestedTreatmentName" type="text" ng-model="suggestion.name" id="suggestedTreatmentName" class="form-control" placeholder="Ex. Tobacco Cessation" required>
+					
+					<label for="suggestedTreatmentField">Field</label>
+					<select name="suggestedTreatmentField" id="suggestedTreatmentField" ng-repeat="result in resultsFields" required>
+						<option>{{result}}</option>
+					</select>
+					
+					<!-- Optional Parameters for the disease suggestions -->
+					<div>
+						<h5>If Any Special Parameters for this Suggested Treatment (optional): </h5>
+						<label for="specialConditionParameterName">Parameter Name:</label>
+						<input name="specialConditionParameterName" type="text" ng-model="suggestion.specialConditionParameterName" id="specialConditionParameterName" placeholder="Ex. age">
+
+						<label for="specialConditionParameterValue">Parameter Value:</label>
+						<input name="specialConditionParameterValue" type="text" ng-model="suggestion.specialConditionParameterValue" id="specialConditionParameterValue" placeholder="Ex. > 25">  
+
+						<button class="btn btn-primary" type="button" ng-click="addSuggestion()">Add Suggestion</button>
+						<button class="btn btn-warning" type="button" ng-click="removeSuggestion($index)" ng-disabled="suggestions.length == 1">Remove Suggestion</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+<!-- temporary, will change when connecting page to the website -->
+<script src="../../../../public/lib/angular/angular.min.js"></script>
+<script src="../controllers/disease.client.controller.js"></script>
