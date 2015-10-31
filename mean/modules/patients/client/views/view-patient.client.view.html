@@ -1,0 +1,22 @@
+<section ng-controller="PatientsController" ng-init="findOne()">
+  <div class="page-header">
+    <h1 ng-bind="patient.name"></h1>
+  </div>
+  <div class="pull-right" ng-show="authentication.user._id == patient.user._id">
+    <a class="btn btn-primary" ui-sref="patients.edit({patientId: patient._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Created on
+      <span ng-bind="patient.created | date:'mediumDate'"></span>
+      by
+      <span ng-bind="patient.user.displayName"></span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="patient.content"></p>
+</section>

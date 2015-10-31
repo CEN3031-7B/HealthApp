@@ -33,6 +33,11 @@
                 <a ui-sref="settings.picture">Change Profile Picture</a>
               </li>
             -->
+              <!-- temporary link to patient portal -->
+              <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
+                <a href="/patients">Patient Portal</a>
+              </li>
+              <li class="divider"></li>
               <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
                 <a ui-sref="settings.password">Change Password</a>
               </li>
