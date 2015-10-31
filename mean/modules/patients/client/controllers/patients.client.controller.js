@@ -17,7 +17,7 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
 
       // Create new Patient object
       var patient = new Patients({
-        title: this.title,
+        name: this.name,
         content: this.content
       });
 
@@ -26,7 +26,7 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
         $location.path('patients/' + response._id);
 
         // Clear form fields
-        $scope.title = '';
+        $scope.name = '';
         $scope.content = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
