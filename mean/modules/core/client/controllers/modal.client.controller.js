@@ -3,6 +3,8 @@
 angular.module('core').controller('ModalController', ['$scope','$modal' ,'$http', '$log','$window','$location',
   function ($scope, $modal, $http, $log, $window, $location) {
 
+    //$("modal-content").load("/manage.client.view.html");
+
   $scope.animationsEnabled = true;
 
     $scope.open = function (size, id) {
