@@ -22,9 +22,7 @@ angular.module('core').controller('ModalController', ['$scope','$modal' ,'$http'
               $scope.$broadcast('show-errors-check-validity', 'userForm');
               return false;
             }
-            var link = "mailto:me@example.com"
-                     + "?subject=" + $scope.message.user + " is concerned!"
-                     + "&body=" + $scope.message.text;
+            var link = "mailto:me@example.com" + "?subject=" + $scope.message.user + " is concerned!" + "&body=" + $scope.message.text;
             window.location.href = link;
           };
         },
