@@ -25,6 +25,6 @@ angular.module('core').controller('ModalController', ['$scope','$modal' ,'$http'
         $scope.$broadcast('show-errors-check-validity', 'userForm');
         return false;
       }
-    }
+    };
   }
 ]);
