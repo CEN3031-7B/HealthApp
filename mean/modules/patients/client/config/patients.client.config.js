@@ -19,7 +19,7 @@ angular.module('patients').run(['Menus',
 
     // Add the dropdown create item
     Menus.addSubMenuItem('topbar', 'patients', {
-      title: 'Create Prticles',
+      title: 'Create Patients',
       state: 'patients.create',
       roles: ['user']
     });
