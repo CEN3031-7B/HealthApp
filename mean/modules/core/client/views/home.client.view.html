@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class = "col-md-6">
-      <h3>Sign Up</h3><hr>
+      <h3>Create User</h3><hr>
         <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin" novalidate autocomplete="off">
           <div>
             <div class="form-group" show-errors>
@@ -71,11 +71,15 @@
               <label>Password Strength</label>
               <progressbar value="strengthProgress" type="{{strengthColor}}"><span style="color:white; white-space:nowrap;">{{strengthProgress}}%</span></progressbar>
             </div>
+            <div>
+              <label for="admin">Administrator?</label>
+              <input type="checkbox" name="admin" id="admin" value="1" class="" ng-model="credentials.admin">
+            </div>
             <p>Text about agreeing to Terms and Conditions upon signing up.<br>
               Also reassuring that people's information is secure.
             </p>
             <div class="text-left form-group">
-              <button type="submit" class="btn btn-primary">Sign up</button>
+              <button type="submit" class="btn btn-primary">Create</button>
             </div>
             <div ng-show="error" class="text-center text-danger">
               <strong ng-bind="error"></strong>
@@ -98,7 +102,7 @@
     </div>
     <div class="col-md-6">
       <h2> CONTACT INFO </h2><hr>
-      <span class="glyphicon glyphicon-envelope"></span>Email: 
+      <span class="glyphicon glyphicon-envelope"></span>Email:
       <a href="mailto:#">healthcareapp@gmail.com</a><br><br>
       <span class="glyphicon glyphicon-phone"></span> Phone: 855-474-9342
     </div>

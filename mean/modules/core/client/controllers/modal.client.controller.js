@@ -1,14 +1,16 @@
 'use strict';
 
-angular.module('core').controller('ModalController', ['$scope','$modal' ,'$http', '$log',
-  function ($scope, $modal, $http, $log) {
+angular.module('core').controller('ModalController', ['$scope','$modal' ,'$http', '$log', '$state',
+  function ($scope, $modal, $http, $log, $state) {
+
+    $("modal-content").load("/manage.client.view.html");
 
   $scope.animationsEnabled = true;
 
-    $scope.open = function (size) {
+    $scope.open = function (size, id) {
       var modalInstance = $modal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: 'myModalContent.html',
+        templateUrl: id,
         controller: function ($scope, $modalInstance) {
           $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
