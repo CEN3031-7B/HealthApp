@@ -8,13 +8,13 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
 
-    // If user is signed in then redirect back home
+    // If user is signed in then redirect to correct landing page
     if ($scope.authentication.user) {
       if ($scope.authentication.user.admin) {
         $location.path('/admin_landing');
       }
-      else{
-        $location.path('/home');
+      else if (!$scope.authentication.user.admin){
+        $location.path('/patients');
       }
     }
 
@@ -26,7 +26,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         return false;
       }
-      console.log($scope.credentials);
+
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
@@ -51,12 +51,12 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        console.log($scope.authentication.user);
+        $state.go($state.previous.state.name || 'home', $state.previous.params);
         if ($scope.authentication.user.admin === true){
           $state.go($state.previous.state.name || 'admin-landing', $state.previous.params);
         }
         else {
-          $state.go($state.previous.state.name || 'home', $state.previous.params);
+          $state.go('patients.list', $state.previous.params);
         }
       }).error(function (response) {
         $scope.error = response.message;
