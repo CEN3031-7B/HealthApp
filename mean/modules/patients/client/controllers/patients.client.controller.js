@@ -5,6 +5,9 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
   function ($scope, $stateParams, $location, Authentication, Patients) {
     $scope.authentication = Authentication;
 
+    // Status of edit button in order to show/hide certain buttons on survey page
+    $scope.editEnabled = [];
+
     // Create new Patient
     $scope.create = function (isValid) {
       $scope.error = null;
@@ -25,7 +28,7 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
       patient.$save(function (response) {
         $location.path('patients/' + response._id);
 
-        // Clear form fields
+        // Clear form Entrys
         $scope.name = '';
         $scope.content = '';
       }, function (errorResponse) {
@@ -80,5 +83,73 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
         patientId: $stateParams.patientId
       });
     };
+
+    /* Functions for nested arrays that appear on survey page; Add/Update/Delete without interruption */
+    // Add new entry
+    $scope.addEntry = function () {
+      // Create new Patient object
+      var patient = new Patients({
+        name: this.name,
+        detail: this.detail
+      });
+
+      // Save data
+      patient.$save(function () {
+        // New object appears to be displayed immediately on the interface
+        $scope.patients.push(patient);
+        // Clear form Entrys
+        $scope.name = '';
+        $scope.detail = '';
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
+      });
+    };
+
+    // Enable edit
+    $scope.editEntry = function(index) {
+      $scope.editEnabled[index] = angular.copy($scope.patients[index]);
+    };
+
+    // Update existing entry
+    $scope.updateEntry = function(index) {
+      var patient = $scope.patients[index];
+      // Edits appear to be displayed immediately on the interface
+      $scope.$apply(function () {
+        Patients.update({patientId: patient._id}, patient);
+      });
+      $scope.editEnabled[index] = false;
+      // Update data
+      patient.$update(function () {
+      }, function (errorResponse) {
+        $scope.error = errorResponse.data.message;
+      });
+    };
+
+    // Cancel
+    $scope.cancel = function(index) {
+      $scope.patients[index] = angular.copy($scope.editEnabled[index]);
+      $scope.editEnabled[index] = false;
+    };
+
+    // Delete entry
+    $scope.deleteEntry = function(index) {
+      var patient = $scope.patients[index];
+      // Appears to be immediately removed
+      $scope.patients.splice(index, 1);
+      if (patient) {
+        // Delete data
+        patient.$remove();
+        for (var i in $scope.patients) {
+          if ($scope.patients[i] === patient) {
+            $scope.patients.splice(i, 1);
+          }
+        }
+      } else {
+        $scope.patient.$remove(function () {
+          $location.path('patients');
+        });
+      }
+    }; /* .Functions for nested arrays on survey page */
+
   }
 ]);
