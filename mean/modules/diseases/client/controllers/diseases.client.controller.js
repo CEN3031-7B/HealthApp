@@ -3,7 +3,7 @@
 //Disease Results Controller
 angular.module('diseases',[]).controller('DiseasesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Diseases', 'DiseaseSuggestion',
   function ($scope, $stateParams, $location, Authentication, Diseases, DiseaseSuggestion) {
-		//$scope.authenitcation = Authentication;
+		$scope.authenitcation = Authentication;
 
 		$scope.resultsFields = ["Education", "Referrels", "Medications", "Laboratory", "Screening", "Vaccinations", "DME", "Medication Adherence"];
 
@@ -80,10 +80,22 @@ angular.module('diseases',[]).controller('DiseasesController', ['$scope', '$stat
 			var disease = $scope.disease;
 
 			disease.$update(function() {
-				$location.path('disease/' + disease._id);
+				$location.path('diseases/' + disease._id);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
 		};
+
+		// Find a list of Diseases
+	    $scope.find = function () {
+	      $scope.adiseases = Diseases.query();
+	    };
+
+	    // Find existing Disease
+	    $scope.findOne = function () {
+	      $scope.disease = Diseases.get({
+	        diseaseId: $stateParams.diseaseId
+	      });
+	    };
 	}
 ]); 
