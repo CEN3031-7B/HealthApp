@@ -1,0 +1,25 @@
+body {
+    background-color: #D3D3D3;
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+hr {
+    height: 1px;
+    background-color: #100101;
+}
+
+.input-group {
+    margin-left: 40px;
+    margin-right: 1%;
+}
+
+.info {
+    width: 100%;
+}
+
+td{
+    vertical-align: text-bottom;
+    padding: 0.75%;
+    text-align: left;
+}
