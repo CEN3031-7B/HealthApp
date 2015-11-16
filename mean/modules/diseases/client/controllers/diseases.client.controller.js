@@ -1,19 +1,16 @@
 'use strict';
 
 //Disease Results Controller
-angular.module('diseases',[]).controller('DiseasesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Diseases', 'DiseaseSuggestion',
+angular.module('diseases').controller('DiseasesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Diseases', 'DiseaseSuggestion',
   function ($scope, $stateParams, $location, Authentication, Diseases, DiseaseSuggestion) {
 		$scope.authenitcation = Authentication;
 
 		$scope.resultsFields = ["Education", "Referrels", "Medications", "Laboratory", "Screening", "Vaccinations", "DME", "Medication Adherence"];
 
-		var emptySuggestion = new DiseaseSuggestion({});
 		$scope.suggestions = [new DiseaseSuggestion({})];
 
 		$scope.addSuggestion = function() {
-			console.log("entetered");
-			$scope.suggestions.push(emptySuggestion);
-			console.log($scope.suggestions);
+			$scope.suggestions.push(new DiseaseSuggestion({}));
 		};
 
 		//Removes Suggestion from the array
@@ -33,11 +30,23 @@ angular.module('diseases',[]).controller('DiseasesController', ['$scope', '$stat
 
 			//Create new Disease object
 			var disease = new Diseases({
-				diseaseName: this.diseaseName,
+				diseaseName: $scope.diseaseName,
 
 				//Need to define suggestions as an array of disease result condition
-				suggestions: this.suggestions
+				suggestions: $scope.suggestions
 			});
+
+
+
+
+
+console.log(disease);
+
+
+
+
+
+
 
 			disease.$save(function(response) {
 				$location.path('diseases/' + response._id);
@@ -88,7 +97,7 @@ angular.module('diseases',[]).controller('DiseasesController', ['$scope', '$stat
 
 		// Find a list of Diseases
 	    $scope.find = function () {
-	      $scope.adiseases = Diseases.query();
+	      $scope.diseases = Diseases.query();
 	    };
 
 	    // Find existing Disease

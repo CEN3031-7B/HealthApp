@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   Disease = mongoose.model('Disease'),
+  DiseaseSuggestion = mongoose.model('DiseaseSuggestion'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -13,6 +14,24 @@ var path = require('path'),
  */
 exports.create = function (req, res) {
   var disease = new Disease(req.body);
+  disease.user = req.user;
+
+  disease.save(function (err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(disease);
+    }
+  });
+};
+
+/**
+ * Create a DiseaseSuggestion
+ */
+exports.create = function (req, res) {
+  var disease = new DiseaseSuggestion(req.body);
   disease.user = req.user;
 
   disease.save(function (err) {
@@ -86,6 +105,21 @@ exports.list = function (req, res) {
 };
 
 /**
+ * List of DiseaseSuggestions
+ */
+exports.list = function (req, res) {
+  DiseaseSuggestion.find().sort('-created').populate('name', 'displayName').exec(function (err, diseases) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(diseases);
+    }
+  });
+};
+
+/**
  * Disease middleware
  */
 exports.diseaseByID = function (req, res, next, id) {
@@ -105,6 +139,30 @@ exports.diseaseByID = function (req, res, next, id) {
       });
     }
     req.disease = disease;
+    next();
+  });
+};
+
+/**
+ * DiseaseSuggestion middleware
+ */
+exports.diseaseSuggestionByID = function (req, res, next, id) {
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: 'DiseaseSuggestion is invalid'
+    });
+  }
+
+  DiseaseSuggestion.findById(id).populate('name', 'displayName').exec(function (err, diseaseSuggestion) {
+    if (err) {
+      return next(err);
+    } else if (!diseaseSuggestion) {
+      return res.status(404).send({
+        message: 'No Disease Suggestion with that identifier has been found'
+      });
+    }
+    req.diseaseSuggestion = diseaseSuggestion;
     next();
   });
 };

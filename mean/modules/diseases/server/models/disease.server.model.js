@@ -12,9 +12,8 @@ var mongoose = require('mongoose'),
 var DiseaseResultSchema = new Schema({
   name: {
     type: String,
-    default: '',
     trim: true,
-    required: 'Title cannot be blank'
+    required: 'Suggested Treatment Name cannot be blank'
   },
   field: {
     type: String,
@@ -38,6 +37,13 @@ var ConditionSchema = new Schema({
   },
   suggestions:[DiseaseResultSchema]
 });
+
+// ConditionSchema.
+//   find({}).
+//   populate('suggestions').
+//   exec(function(error, conditions) {
+//     conditions[0].suggestions[0].DiseaseSuggestion.created;
+//   });
 
 mongoose.model('DiseaseSuggestion', DiseaseResultSchema);
 mongoose.model('Disease', ConditionSchema);

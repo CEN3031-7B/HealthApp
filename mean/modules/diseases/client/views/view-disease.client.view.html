@@ -3,7 +3,7 @@
     <h1 ng-bind="disease.title"></h1>
   </div>
   <div class="pull-right" ng-show="authentication.user._id == disease.user._id">
-    <a class="btn btn-primary" ui-sref="disease.edit({articleId: disease._id})">
+    <a class="btn btn-primary" ui-sref="disease.edit({diseaseId: disease._id})">
       <i class="glyphicon glyphicon-edit"></i>
     </a>
     <a class="btn btn-primary" ng-click="remove();">

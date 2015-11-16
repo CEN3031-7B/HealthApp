@@ -12,3 +12,15 @@ angular.module('diseases').factory('Diseases', ['$resource',
     });
   }
 ]);
+
+angular.module('diseases').factory('DiseaseSuggestion', ['$resource',
+  function ($resource) {
+    return $resource('api/diseases/:diseaseId', {
+      diseaseId: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
+  }
+]);
