@@ -2,7 +2,7 @@
 
 //Disease Results Controller
 angular.module('diseases').controller('DiseasesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Diseases', 'DiseaseSuggestion',
-  function ($scope, $stateParams, $location, Authentication, Diseases, DiseaseSuggestion) {
+  function ($scope, $stateParams, $location, Authentication, Disease, DiseaseSuggestion) {
 		$scope.authenitcation = Authentication;
 
 		$scope.resultsFields = ["Education", "Referrels", "Medications", "Laboratory", "Screening", "Vaccinations", "DME", "Medication Adherence"];
@@ -28,36 +28,57 @@ angular.module('diseases').controller('DiseasesController', ['$scope', '$statePa
 				return false;
 			}
 
-			//Create new Disease object
-			var disease = new Diseases({
-				diseaseName: $scope.diseaseName,
-
-				//Need to define suggestions as an array of disease result condition
-				suggestions: $scope.suggestions
-			});
-
-
-
-
-
-console.log(disease);
+			//Generates Disease Suggestions and an array of response Ids
+			var responseId = [];
+			var i;
+			//for(i = 0; i < $scope.suggestions.length; ++i) {
+				$scope.suggestions[0].$save(function(response) {
+					console.log(response._id);
+					responseId.push(response._id);
+					if(responseId.length === $scope.suggestions.length) {
 
 
 
+						console.log(responseId);
+
+
+						var disease = new Disease({
+							diseaseName: $scope.diseaseName,
+
+							//Need to define suggestions as an array of disease result condition
+							suggestions: responseId
+						});
+
+						console.log(disease);
+						//Redirect after save
+						disease.$save(function (response) {
+
+							$location.path('diseases/' + response._id);
+
+							//Clear form fields
+							$scope.diseaseName ='';
+							$scope.suggestions = [];
+						}, function(err) {
+							$scope.error = err.data.message;
+						});
+					}
+
+
+
+				});
+			//}
 
 
 
 
-			disease.$save(function(response) {
-				$location.path('diseases/' + response._id);
 
-				//Clear form fields
-				$scope.diseaseName ='';
-				$scope.suggestions = [];
-			}, function (errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
+
+
+
+
+
 		};
+
 
 		//Remove existing Disease 
 		$scope.remove = function (disease) {
@@ -97,12 +118,12 @@ console.log(disease);
 
 		// Find a list of Diseases
 	    $scope.find = function () {
-	      $scope.diseases = Diseases.query();
+	      $scope.diseases = Disease.query();
 	    };
 
 	    // Find existing Disease
 	    $scope.findOne = function () {
-	      $scope.disease = Diseases.get({
+	      $scope.disease = Disease.get({
 	        diseaseId: $stateParams.diseaseId
 	      });
 	    };

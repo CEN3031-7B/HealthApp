@@ -6,6 +6,19 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
+
+var ConditionSchema = new Schema({
+  diseaseName: {
+    type: String,
+    trim: true,
+    required: 'Disease Name cannot be blank'
+  },
+  suggestions: [{
+    type: Schema.ObjectId,
+    ref: 'DiseaseSuggestion'
+  }]
+});
+
 /**
  * Disease Condition Schema
  */
@@ -13,11 +26,11 @@ var DiseaseResultSchema = new Schema({
   name: {
     type: String,
     trim: true,
-    required: 'Suggested Treatment Name cannot be blank'
+    //required: 'Suggested Treatment Name cannot be blank'
   },
   field: {
     type: String,
-    required: 'Field is required'
+    //required: 'Field is required'
   },
   specialConditionParameterName: {
     type: String,
@@ -29,21 +42,6 @@ var DiseaseResultSchema = new Schema({
   }
 });
 
-var ConditionSchema = new Schema({
-  diseaseName: {
-    type: String,
-    trim: true,
-    required: 'Disease Name cannot be blank'
-  },
-  suggestions:[DiseaseResultSchema]
-});
-
-// ConditionSchema.
-//   find({}).
-//   populate('suggestions').
-//   exec(function(error, conditions) {
-//     conditions[0].suggestions[0].DiseaseSuggestion.created;
-//   });
-
 mongoose.model('DiseaseSuggestion', DiseaseResultSchema);
+
 mongoose.model('Disease', ConditionSchema);
