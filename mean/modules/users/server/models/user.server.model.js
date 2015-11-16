@@ -96,6 +96,9 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
+  },
+  admin: {
+    type: Boolean
   }
 });
 
