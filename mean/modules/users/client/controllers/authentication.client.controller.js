@@ -8,9 +8,14 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
 
-    // If user is signed in then redirect back home
+    // If user is signed in then redirect to correct landing page
     if ($scope.authentication.user) {
-      $location.path('/');
+      if ($scope.authentication.user.admin) {
+        $location.path('/admin_landing');
+      }
+      else if (!$scope.authentication.user.admin){
+        $location.path('/patients');
+      }
     }
 
     $scope.signup = function (isValid) {
@@ -47,6 +52,12 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         // And redirect to the previous or home page
         $state.go($state.previous.state.name || 'home', $state.previous.params);
+        if ($scope.authentication.user.admin === true){
+          $state.go($state.previous.state.name || 'admin-landing', $state.previous.params);
+        }
+        else {
+          $state.go('patients.list', $state.previous.params);
+        }
       }).error(function (response) {
         $scope.error = response.message;
       });
