@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="survey.css" />
+    <script src="gen%20info%20JS.js"></script>
+  </head>
+    
+<!-- Insert header here -->
+    <body>
+        <h3>New Patient Health Risk Assessment / Update Your Information</h3>
+        <hr>
+        <p>Please fill out the following information. Fields marked with an asterisk (*) are required.</p>
+        <table class="info">
+            <tr>
+                <td>
+                   <div class="form-group">
+                       <label for="pName" class="control-label pull-left">Name* </label>
+                       <div class="col-sm-10 pull-right">
+                           <input type="text" class="form-control" id="pName" placeholder="Patient name">
+                       </div> 
+                    </div>
+                </td>
+                <td class="col-md-4">
+                    <div class="form-group">
+                        <label for="dob" class="control-label">Date of<br>birth*</label>
+                        <div class="input-group col-sm-9 pull-right">
+                            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" placeholder="Date of Birth"/>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </div>
+                </td>
+                <td class="col-md-4">
+                    <div class="form-group">
+                       <label for="gender" class="control-label pull-left">Gender</label>
+                       <div class="col-sm-10 pull-right">
+                           <select class="form-control" id="gender">
+                            <option>Select...</option>
+                            <option>Female</option>
+                            <option>Male</option>
+                        </select>
+                       </div> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="phoneNo" class="control-label pull-left">Phone number*</label>
+                        <div class="col-sm-8 pull-right">
+                            <!-- The following code is by StackOverflow user Walter Roman; found here: http://stackoverflow.com/questions/22057481/a-directive-to-format-phone-number-->
+                           <input type="text" class="form-control" id="phoneNo" ui-mask="999-999-9999" placeholder="xxx-xxx-xxxx" ng-model="phone">
+                            <!-- -->
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                       <label for="address" class="control-label pull-left">Address* </label>
+                       <div class="col-sm-10 pull-right">
+                           <input type="text" class="form-control" id="address" placeholder="Street no., City, State Zip code">
+                       </div> 
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label for="plan" class="control-label pull-left">Plan name* </label>
+                        <div class="col-sm-9 pull-right">
+                           <input type="text" class="form-control" id="plan" placeholder="Plan name">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="altPhoneNo" class="control-label pull-left">Alternate phone<br>number</label>
+                        <div class="col-sm-8 pull-right">
+                            <!-- The following code is by StackOverflow user Walter Roman; found here: http://stackoverflow.com/questions/22057481/a-directive-to-format-phone-number-->
+                           <input type="text" class="form-control" id="altPhoneNo" ui-mask="999-999-9999" placeholder="xxx-xxx-xxxx" ng-model="phone">
+                            <!-- -->
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                       <label for="lang" class="control-label pull-left">Language</label>
+                       <div class="col-sm-9 pull-right">
+                           <select class="form-control" id="lang">
+                               <option>English</option>
+                               <option>Spanish</option>
+                               <option>Chinese</option>
+                               <option>French</option>
+                               <option>Other</option>
+                           </select>
+                       </div> 
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label for="subID" class="control-label pull-left">Subscriber ID*</label>
+                       <div class="col-sm-9 pull-right">
+                           <input type="number" class="form-control" id="subID" placeholder="Practitioner name">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                       <label for="contactTime" class="control-label pull-left">Best time<br>to contact</label>
+                       <div class="col-sm-10 pull-right">
+                           <select class="form-control" id="contactTime">
+                               <option>Early morning (7 AM - 9 AM)</option>
+                               <option>Late morning (10 AM - 12 PM)</option>
+                               <option>Early afternoon (12 PM - 3 PM)</option>
+                               <option>Late afternoon (3 PM - 5 PM)</option>
+                               <option>Early evening (5 PM - 7 PM)</option>
+                               <option>Late evening (7 PM - 9 PM)</option>
+                           </select>
+                       </div> 
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                       <label for="dmp" class="control-label pull-left">Disease<br>management plan </label>
+                       <div class="col-sm-8 pull-right">
+                           <input type="text" class="form-control" id="dmp" placeholder="Disease management plan">
+                       </div> 
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label for="plan" class="control-label pull-left">Practitioner<br>name*</label>
+                       <div class="col-sm-9 pull-right">
+                           <input type="text" class="form-control" id="plan" placeholder="Practitioner name">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <!-- Insert pagination here -->
+    </body>
+</html>
