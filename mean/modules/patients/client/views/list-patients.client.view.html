@@ -2,8 +2,9 @@
   <div class="page-header">
     <h1>List of Patients</h1>
   </div>
+  <input type="text" ng-model="search.lastname" placeholder="Filter by Last Name" size="65"><hr>
   <div class="list-group">
-    <a ng-repeat="patient in patients" ui-sref="patients.view({patientId: patient._id})" class="list-group-item">
+    <a ng-repeat="patient in patients|filter:search" ui-sref="patients.view({patientId: patient._id})" class="list-group-item">
       <small class="list-group-item-text">
         Created on
         <span ng-bind="patient.created | date:'mediumDate'"></span>
