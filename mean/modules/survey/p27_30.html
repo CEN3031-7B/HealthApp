@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="survey.css" />
+    <script src="gen%20info%20JS.js"></script>
+  </head>
+
+  <!-- Insert header here -->
+  <body>
+    <h3>DEPRESSION SCREENING TOOL</h3>
+    <span class="lede">
+      PHQ-9 : Select the member's response to the questions below or have them mark the appropriate selection. The score will total automatically.</br>
+    </br>
+      Over the last 2  weeks, how often have you been bothered by any of the following problems?
+    </span>
+
+    <table class="info">
+      <tr>
+        <td class="col-md-6">
+          (0) - Not at all   (1) - Several Days   (2) - More Than half the days   (3) - Nearly every day
+        </td>
+        <td class="col-md-2">
+        </td>
+        <td class="col-md-4">
+          Value
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          1. Little interest or pleasure in doing things
+        </td>
+        <td class="col-md-2">
+        </td>
+        <td class="col-md-4">
+          <input type="text" name="depressionvalue1" id="depressionvalue1"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          2. Feeling down, depressed, or hopeless
+        </td>
+        <td class="col-md-2">
+        </td>
+        <td class="col-md-4">
+          <input type="text" name="depressionvalue2" id="depressionvalue2"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          3. Trouble falling/staying asleep, sleeping too much.
+        </td>
+        <td class="col-md-2">
+        </td>
+        <td class="col-md-4">
+          <input type="text" name="depressionvalue3" id="depressionvalue3"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          4. Feeling tired or having little energy
+        </td>
+        <td class="col-md-2">
+        </td>
+        <td class="col-md-4">
+          <input type="text" name="depressionvalue4" id="depressionvalue4"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          5. Poor appetite or overeating
+        </td>
+        <td class="col-md-2">
+        </td>
+        <td class="col-md-4">
+          <input type="text" name="depressionvalue5" id="depressionvalue5"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          6. Feeling bad about yourself or that you are a faulure or have let yourself or your family down
+        </td>
+        <td class="col-md-2">
+        </td>
+        <td class="col-md-4">
+          <input type="text" name="depressionvalue6" id="depressionvalue6"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          7. Trouble concentrating on things such as reading the newspaper or watching television
+        </td>
+        <td class="col-md-2">
+        </td>
+        <td class="col-md-4">
+          <input type="text" name="depressionvalue7" id="depressionvalue7"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          8. Moving or speaking so slowly that other people could have noticed. Or the opposite,
+          being so fidgety or restless that you have been moving around a lot more than usual.
+        </td>
+        <td class="col-md-2">
+        </td>
+        <td class="col-md-4">
+          <input type="text" name="depressionvalue8" id="depressionvalue8"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+          9. Thoughts that you would be better off dead, or of hurting youself in some way
+        </td>
+        <td class="col-md-2">
+        </td>
+        <td class="col-md-4">
+          <input type="text" name="depressionvalue9" id="depressionvalue9"/>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-6">
+        </td>
+        <td class="col-md-2">
+          Total Score:
+        </td>
+        <td class="col-md-4">
+        </td>
+      </tr>
+    </table>
+
+    <span class="lede">
+      Of the problems checked off on the questionnaire, how difficult have these problems made
+      it for you to do your work, take care of things at home, or get along with other people?
+      (assess functional status)
+    </span>
+    <table class="info">
+      <tr>
+        <td class="col-md-1">
+          <input type="checkbox" name="depression_rating" value="Not"/>Not difficult at all
+        </td>
+        <td class="col-md-1">
+          <input type="checkbox" name="depression_rating" value="Somewhat"/>Somewhat difficult
+        </td>
+        <td class="col-md-1">
+          <input type="checkbox" name="depression_rating" value="Very"/>Very difficult
+        </td>
+        <td class="col-md-1">
+          <input type="checkbox" name="depression_rating" value="Extremely"/>Extremely difficult
+        </td>
+        <td class="col-md-1">
+          <input type="checkbox" name="depression_rating" value="NoDiagnosis"/>No diagnosis of major depression applicable at this time
+        </td>
+      </tr>
+    </table>
+    <table class="info">
+      <tr>
+        <td class="col-md-1">
+          If the member scores 5-9 OR Mild Depression: <br>
+          <input type="checkbox" name="mild_depression" value="single"/>major depression, single episode, mild <br>
+          <input type="checkbox" name="mild_depression" value="recurrent"/>major depression, recurrent, mild
+        </td>
+        <td class="col-md-1">
+          If the member scores 10-14 OR Moderate Depression: <br>
+          <input type="checkbox" name="moderate_depression" value="single"/>major depression, single episode, moderate <br>
+          <input type="checkbox" name="moderate_depression" value="recurrent"/>major depression, recurrent, moderate
+        </td>
+        <td class="col-md-2">
+          If the member scores 15-19 OR Moderately Severe Depression OR 20-27 Severe Depression: <br>
+          <input type="checkbox" name="severe_depression" value="single"/>major depression, single episode, severe w/o psychotic behavior <br>
+          <input type="checkbox" name="severe_depression" value="recurrent"/>major depression, recurrent, severe w/o psychotic behavior
+        </td>
+      </tr>
+    </table>
+    <table class="info">
+      <tr>
+        <td class="col-sm-1">
+          <span class="lede"> Other mental health diagnoses:</span>
+        </td>
+        <td class="col-sm-1">
+          <input type="checkbox" name="simple_schizo" value="schizo"/>Simple schizophrenia, unspecified
+        </td>
+        <td class="col-sm-1">
+          <input type="checkbox" name="bipolar" value="bipolar"/>Bipolar disorder
+        </td>
+        <td class="col-sm-1">
+          <input type="checkbox" name="Paranoid" value="paranoid"/>Paranoid schizophrenia
+        </td>
+      </tr>
+    </table>
+    <table class="info">
+      <tr>
+        <td class="col-sm-1">
+          <input type="checkbox" name="othermentalhealth" value="true"/>Other
+        </td>
+        <td class="col-sm-8">
+          <input type="text" class="form-control" id="othermentalhealthinput" />
+        </td>
+      </tr>
+    </table>
+
+    <h4>Therapy</h4>
+    <table class="info">
+      <tr>
+        <td class="col-sm-1">
+          On meds/Not on Meds
+        </td>
+        <td class="col-sm-2">
+          <input type="text" class="form-control" id="onmeds" />
+        </td>
+        <td class="col-sm-1">
+          Controlled/Not Controlled
+        </td>
+        <td class="col-sm-2">
+          <input type="text" class="form-control" id="controlled" />
+        </td>
+
+      </tr>
+      <tr>
+        <td class="col-sm-1">
+          Type of Therapy
+        </td>
+        <td class="col-sm-2">
+          <input type="text" class="form-control" id="therapy" />
+        </td>
+      </tr>
+    </table>
+
+
+    <!-- Insert pagination here -->
+    </body>
+</html>

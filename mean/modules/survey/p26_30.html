@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="survey.css" />
+    <script src="gen%20info%20JS.js"></script>
+  </head>
+
+  <!-- Insert header here -->
+  <body>
+    <h3>THE MINI-COG ASSESSMENT</h3>
+    <table class="info">
+      <tr>
+        <td class="col-md-2">
+          <input type="checkbox" name="memberrefused" id="memberrefused"/>Member Refused
+        </td>
+        <td class="col-md-10">
+          <input type="checkbox" name="unabletoassess" id="unabletoassess"/>Unable to Assess
+        </td>
+      </tr>
+    </table>
+    <span class="lede">This instrument combines an un-cued 3-item recall test with a clock drawing test (CDT).</span>
+    </br>
+    1. Instruct the member to listen carefully to and remember, 3 unrelated words, and then to repeat the words.</br>
+    2. Instruct the member to draw the face of a clock. After they put the numbers on the clock face, ask them to
+    draw the hands of the clock to read a specific time. The instructions can be repeated but no additional instruction
+    shall be given. Give the member as much time as needed to complete the task. The clock excercise serves to distract
+    from recall. </br>
+    3. Ask the member to repeat the 3 previously presented words. </br>
+    </br>
+    <span class="lede">Scoring: Give 1 point for each recalled word. Score 1-3 </span>
+    </br>
+    A score of 0 indicates positive screen for dementia.
+    A score of 1 or 2 with an abnormal clock draw test (CDT) indicates positive screen for dementia.
+    A score of 1 or 2 with a normal CDT indicates negative screen for dementia.
+    A score of 4 indicates negative screen for dementia.
+    <table class="info">
+      <tr>
+        <td class="col-md-2">
+          Clock Drawing:
+        </td>
+        <td class="col-md-2">
+          <input type="checkbox" name="memberrefused" id="cdtnormal"/>Normal
+        </td>
+        <td class="col-md-2">
+          <input type="checkbox" name="memberrefused" id="cdtabnormal"/>Abnormal
+        </td>
+        <td class="col-md-10">
+          <input type="checkbox" name="unabletoassess" id="cdtunabletoperform"/>Unable to Perform
+        </td>
+      </tr>
+    </table>
+
+    <table class="info">
+      <tr>
+        <td class="col-md-1">
+          Member's Score:
+        </td>
+        <td class="col-md-1">
+          <input type="text" class="form-control" id="dementiascore"/>
+        </td>
+        <td class="col-md-9">
+          <input type="checkbox" name="dementiapos" id="dementiapos"/>Dementia </br>
+          <input type="checkbox" name="dementiascreening" id="dementiascreening"/>Recommend further screening for Dementia
+        </td>
+      </tr>
+    </table>
+
+    <!-- Insert pagination here -->
+    </body>
+</html>

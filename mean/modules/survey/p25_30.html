@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="survey.css" />
+    <script src="gen%20info%20JS.js"></script>
+  </head>
+
+<!-- Insert header here -->
+    <body>
+        <h3>COMPRESHENSIVE PAIN ASSESSMENT: Numeric Rating Scale</h3>
+        <table class="info">
+            <tr>
+                <td>
+                  Unable to Assess <input type="checkbox" name="Assess" /> &nbsp &nbsp &nbsp &nbsp &nbsp Reason:
+                </td>
+                <td class="col-md-10">
+                    <input type="text" class="form-control" id="Reason"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  Pain:
+                  <input type="checkbox" name="painyes" />Yes
+                  <input type="checkbox" name="painno" />No
+                </td>
+                <td class="col-md-10">
+                </td>
+            </tr>
+          </table>
+            <h4>Type of Pain:</h4>
+              <table class="info">
+                <tr>
+                  <td>
+                    Acute Pain:
+                    <input type="checkbox" name="Acutepain" />Yes (Pain that comes on quickly, can be severe and lasts a relatively shorter period of time)
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Chronic Pain:
+                    <input type="checkbox" name="chronicpain" />Yes (Pain that extends beyond the expected period of healing, usually greater than 6 month)
+                  </td>
+                </tr>
+                <tr>
+                    <td>
+                      Location(s) of pain:
+                      <input type="text" class="form-control" id="painlocation"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      Description of pain:
+                      <input type="text" class="form-control" id="paindescription"/>
+                    </td>
+                </tr>
+              </table>
+              On a scale of 0-10:
+                <table class="info">
+                  <tr>
+                    <td class="col-md-1">
+                      0 No Pain
+                    </td>
+                    <td class="col-md-1">
+                      1-3 Mild Pain
+                    </td>
+                    <td class="col-md-2">
+                      4-7 Discomforting-Moderate Pain
+                    </td>
+                    <td class="col-md-5">
+                      8-10 Distressing, Intense, Unbearable = Severe Pain
+                    </td>
+                  </tr>
+                </table>
+                <h4>Pain Score</h4>
+                  <table class="info">
+                    <tr>
+                      <td class="col-md-1">
+                        Now:
+                      </td>
+                      <td class="col-md-1">
+                        <input type="text" class="form-control" id="painnow"/>
+                      </td>
+                      <td class="col-md-1">
+                        At Best:
+                      </td>
+                      <td class="col-md-1">
+                        <input type="text" class="form-control" id="painatbest"/>
+                      </td>
+                      <td class="col-md-1">
+                      At worst:
+                      </td>
+                      <td class="col-md-1">
+                      <input type="text" class="form-control" id="painatworst"/>
+                      </td>
+                      <td class="col-md-1">
+                      Pain Goal:
+                      </td>
+                      <td class="col-md-1">
+                      <input type="text" class="form-control" id="paingoal"/>
+                      </td>
+                    </tr>
+                  </table>
+                  <h4>Pain Evaluation</h4>
+                    <table class="info">
+                      <tr>
+                        <td class="col-md-1">
+                          1. What makes your pain better?
+                        </td>
+                        <td class="col-md-1">
+                          <input type="text" class="form-control" id="painbetter"/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="col-md-1">
+                          2. What makes your pain worse?
+                        </td>
+                        <td class="col-md-1">
+                          <input type="text" class="form-control" id="painworse"/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="col-md-1">
+                          3. How would you describe how much your pain has been relieved in the last week?
+                        </td>
+                        <td class="col-md-1">
+                          <input type="text" class="form-control" id="painrelieved"/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="col-md-1">
+                          4. Is the amount of relief that you are receiving high enough to make a real difference in your life?
+                        </td>
+                        <td class="col-md-1">
+                          <input type="checkbox" name="painreceivingyes" />Yes
+                          <input type="checkbox" name="painreceivingno" />No
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="col-md-1">
+                          5. Are you meeting your pain goal?
+                        </td>
+                        <td class="col-md-1">
+                          <input type="checkbox" name="painrgoalyes" />Yes
+                          <input type="checkbox" name="paingoalno" />No
+                        </td>
+                      </tr>
+                    </table>
+                    <h4>Based on the above, practitioner assessment of member pain:</h4>
+                      <table class="info">
+                        <tr>
+                          <td class="col-md-1">
+                            <input type="checkbox" name="controlledbest" />Controlled the best it can be
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="col-md-1">
+                            <input type="checkbox" name="controlledmeds" />Controlled with medications
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="col-md-1">
+                            <input type="checkbox" name="controllednomeds" />Controlled without medications
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="col-md-1">
+                            <input type="checkbox" name="Uncontrolledpain" />Uncontrolled and needing further pain management evaluation
+                          </td>
+                        </tr>
+                      </table>
+
+        <!-- Insert pagination here -->
+    </body>
+</html>
