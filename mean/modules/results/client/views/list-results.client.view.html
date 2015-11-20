@@ -1,0 +1,75 @@
+<section ng-controller="ResultsController" ng-init="find()">
+  <div class="page-header">
+    <h1>Results</h1>
+  </div>
+  <table class="table table-striped">
+    <tr class = "info">
+      <td> Category</td>
+      <td> Recommendations</td>
+    </tr>
+    <!-- After adding the category and recommendation tabs
+    Loop through the results to populate the table
+    ng-repeat="suggestion in suggestions"
+     <tr>
+       <td = "suggestion.category"></td>
+       <td = "suggestion.recommendations"></td>
+     </tr>
+    <tr> -->
+      <td> Education</td>
+      <td>
+        <p>Tobacco Cessation</p>
+        <p>Blood Pressure Control</p>
+        <p>Lipid Management</p>
+        <p>Physical Activity: 30 minutes for 7 days per week</p>
+        <p>Weight Management/Nutrition</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Referrals</td>
+      <td>
+        <p>Smoking Cessation</p>
+        <p>Nutrition: Heart Healthy Diet</p>
+        <p>Cardiac Rehabilitation</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Medications</td>
+      <td>
+        <p>Statin</p>
+        <p>Low dose Aspirin (or Clopidogrel for those allergic to ASA)</p>
+        <p>P2Y12 inhibitor and Aspirin</p>
+        <p>Aspirin alone</p>
+        <p>Ace inhibitor</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Laboratory</td>
+      <td>
+        <p>Lipid Profile</p>
+        <p>Fasting Glucose or HbgA1C</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Screening</td>
+      <td>
+        <p>Diabetes</p>
+        <p>Hyperlipidemia</p>
+        <p>Depressiond</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Vaccinations</td>
+      <td>
+          <p>Influenza</p>
+      </td>
+    </tr>
+    <tr>
+      <td>DME</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Medical Adherence</td>
+      <td></td>
+    </tr>
+  </table>
+</section>
