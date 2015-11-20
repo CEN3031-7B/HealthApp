@@ -6,19 +6,6 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-
-var ConditionSchema = new Schema({
-  diseaseName: {
-    type: String,
-    trim: true,
-    required: 'Disease Name cannot be blank'
-  },
-  suggestions: [{
-    type: Schema.ObjectId,
-    ref: 'DiseaseSuggestion'
-  }]
-});
-
 /**
  * Disease Condition Schema
  */
@@ -42,6 +29,17 @@ var DiseaseResultSchema = new Schema({
   }
 });
 
-mongoose.model('DiseaseSuggestion', DiseaseResultSchema);
+var ConditionSchema = new Schema({
+  diseaseName: {
+    type: String,
+    trim: true,
+    required: 'Disease Name cannot be blank'
+  },
+  suggestions: [{
+    type: Schema.ObjectId,
+    ref: 'DiseaseSuggestion'
+  }]
+});
 
+mongoose.model('DiseaseSuggestion', DiseaseResultSchema);
 mongoose.model('Disease', ConditionSchema);

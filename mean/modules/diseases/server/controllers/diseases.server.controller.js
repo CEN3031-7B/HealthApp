@@ -31,21 +31,21 @@ exports.create = function (req, res) {
 /**
  * Create a DiseaseSuggestion
  */
-exports.create = function (req, res) {
-  console.log("create suggestion");
-  var diseaseSuggestion = new DiseaseSuggestion(req.body);
-  diseaseSuggestion.name = req.name;
+// exports.create = function (req, res) {
+//   console.log("create suggestion");
+//   var diseaseSuggestion = new DiseaseSuggestion(req.body);
+//   diseaseSuggestion.name = req.name;
 
-  diseaseSuggestion.save(function (err) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(diseaseSuggestion);
-    }
-  });
-};
+//   diseaseSuggestion.save(function (err) {
+//     if (err) {
+//       return res.status(400).send({
+//         message: errorHandler.getErrorMessage(err)
+//       });
+//     } else {
+//       res.json(diseaseSuggestion);
+//     }
+//   });
+// };
 
 /**
  * Show the current disease
@@ -113,31 +113,31 @@ exports.list = function (req, res) {
 /**
  * List of DiseaseSuggestions
  */
-exports.list = function (req, res) {
-  console.log("list");
-  DiseaseSuggestion.find().sort('-created').populate('suggestions').exec(function (err, diseases) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(diseases);
-    }
-  });
-};
+// exports.list = function (req, res) {
+//   console.log("list");
+//   DiseaseSuggestion.find().sort('-created').populate('suggestions').exec(function (err, diseases) {
+//     if (err) {
+//       return res.status(400).send({
+//         message: errorHandler.getErrorMessage(err)
+//       });
+//     } else {
+//       res.json(diseases);
+//     }
+//   });
+// };
 
 /**
  * Disease middleware
  */
 exports.diseaseByID = function (req, res, next, id) {
   console.log("diseaseById");
-  Disease.findById(id).populate('suggestions').exec(function(err, disease) {
-    if (err) return next(err);
-    if(! disease) return next(new Error('Failed to load Disease' + id));
+  // Disease.findById(id).populate('suggestions').exec(function(err, disease) {
+  //   if (err) return next(err);
+  //   if(! disease) return next(new Error('Failed to load Disease' + id));
 
     req.disease = disease;
     next();
-  });  
+  // });  
 };
   //   if (err) {
   //     return next(err);
@@ -160,18 +160,18 @@ exports.diseaseByID = function (req, res, next, id) {
 /**
  * DiseaseSuggestion middleware
  */
-exports.diseaseSuggestionByID = function (req, res, next, id) {
-  Disease.findById(id).populate('name', 'field').exec(function(err, disease) {
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).send({
-        message: 'DiseaseSuggestion is invalid'
-      });
-    }
+// exports.diseaseSuggestionByID = function (req, res, next, id) {
+//   Disease.findById(id).populate('name', 'field').exec(function(err, disease) {
+//     if (!mongoose.Types.ObjectId.isValid(id)) {
+//       return res.status(400).send({
+//         message: 'DiseaseSuggestion is invalid'
+//       });
+//     }
 
-    req.disease = disease;
-    next();
-  });
-};
+//     req.disease = disease;
+//     next();
+//   });
+// };
 
   // DiseaseSuggestion.findById(id).populate('name', 'displayName').exec(function (err, diseaseSuggestion) {
   //   if (err) {
