@@ -39,7 +39,8 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
   var patient = req.patient;
 
-  patient.name = req.body.name;
+  patient.firstname = req.body.firstname;
+  patient.lastname = req.body.lastname;
   patient.content = req.body.content;
 
   patient.save(function (err) {

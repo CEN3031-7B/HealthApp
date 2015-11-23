@@ -14,7 +14,13 @@ var PatientSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  name: {
+  firstname: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'Name cannot be blank'
+  },
+  lastname: {
     type: String,
     default: '',
     trim: true,
