@@ -1,110 +1,21 @@
 <div class ="container" ng-controller="AuthenticationController">
-  <div class ="row">
-    <div class = "col-md-6">
-      <h3> Know your health risk. Improve your life.</h3><hr>
-      <div style="background-color:gray; color:black; padding:20px;">
-        <p>
-          Enter the appropriate information into the Health Risk Assessment
-          Web Form to generate a <strong>free</strong> and <strong>personalized</strong>
-          health risk assessment that will encourage a healthier population and reduce
-          healthcare costs.
-        </p>
-        <p>
-          The results are generated algorithmically based on established healthcare
-          guidelines, and identifies areas such as:
-        </p>
-        <p>- healthcare prevention
-          <br>- screening
-          <br>- behavior modification
-          <br>- appropriate disease
-          <br>- specific recommendations
-          <br>- suggested wellness and prevention programs
-        </p>
-      </div>
-    </div>
-    <div class = "col-md-6">
-      <h3>Create User</h3><hr>
-        <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin" novalidate autocomplete="off">
-          <div>
-            <div class="form-group" show-errors>
-              <label for="username">Username</label>
-              <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="Username" lowercase required>
-              <div ng-messages="userForm.username.$error" role="alert">
-                <p class="help-block error-text" ng-message="required">Username is required.</p>
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "col-md-6" show-errors>
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" class="form-control" ng-model="credentials.firstName" placeholder="First Name" required>
-                <div ng-messages="userForm.firstName.$error" role="alert">
-                  <p class="help-block error-text" ng-message="required">First name is required.</p>
-                </div>
-              </div>
-              <div class="col-md-6" show-errors>
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" class="form-control" ng-model="credentials.lastName" placeholder="Last Name" required>
-                <div ng-messages="userForm.lastName.$error" role="alert">
-                  <p class="help-block error-text" ng-message="required">Last name is required.</p>
-                </div>
-              </div>
-            </div>
-            <div class="form-group" show-errors>
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" class="form-control" ng-model="credentials.email" placeholder="Email" lowercase required>
-              <div ng-messages="userForm.email.$error" role="alert">
-                <p class="help-block error-text" ng-message="required">Email address is required.</p>
-                <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
-              </div>
-            </div>
-            <div class="form-group" show-errors>
-              <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
-              <div ng-messages="userForm.password.$error" role="alert">
-                <p class="help-block error-text" ng-message="required">Password is required.</p>
-                <div ng-repeat="passwordError in passwordErrors">
-                  <p class="help-block error-text" ng-show="userForm.password.$error.strength">{{passwordError}}</p>
-                </div>
-              </div>
-            </div>
-            <div class="form-group" ng-show="!userForm.password.$pristine">
-              <label>Password Strength</label>
-              <progressbar value="strengthProgress" type="{{strengthColor}}"><span style="color:white; white-space:nowrap;">{{strengthProgress}}%</span></progressbar>
-            </div>
-            <div>
-              <label for="admin">Administrator?</label>
-              <input type="checkbox" name="admin" id="admin" value="1" class="" ng-model="credentials.admin">
-            </div>
-            <p>Text about agreeing to Terms and Conditions upon signing up.<br>
-              Also reassuring that people's information is secure.
-            </p>
-            <div class="text-left form-group">
-              <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-            <div ng-show="error" class="text-center text-danger">
-              <strong ng-bind="error"></strong>
-            </div>
+  <section class="landing">
+    <div class="col-sm-12 paddingless">
+      <div class="col-md-3 col-sm-2 col-xs-1 paddingless"></div>
+      <div class="col-md-6 col-sm-8 col-xs-10 paddingless welcome">
+        <div class="row">
+          <div class="page-header">
+            <h1>Welcome.</h1>
+          </div>
+          <h4 class="description">
+            Enter the appropriate information into the healthcare information application to generate a <strong>free</strong> and <strong>personalized</strong> health risk assessment.
+          </h4>
+          <h5 class="description">
+            The limitations of a HRA are largely related to its usage and it is important to recognise that a HRA highlights health risks but does not diagnose disease and should not replace consultation with a medical or health practitioner.
+          </h5>
         </div>
-      </form>
+      </div>
+      <div class="col-md-3 col-sm-2 col-xs-1 paddingless"></div>
     </div>
-  </div>
-  <hr>
-  <div class ="row">
-    <div class="col-md-6">
-      <h2> PROBLEM? LET US KNOW </h2><hr>
-      <label>Name</label>
-      <input type="text" class="form-control" placeholder="Bob Smith" required><br>
-      <label>Email</label>
-      <input type="text" class ="form-control" placeholder="BobSmith@ufl.edu" required><br>
-      <label>Message</label>
-      <textarea class="form-control" rows="5"></textarea><br>
-      <button type ="submit" class="btn btn-primary">Send</button>
-    </div>
-    <div class="col-md-6">
-      <h2> CONTACT INFO </h2><hr>
-      <span class="glyphicon glyphicon-envelope"></span>Email:
-      <a href="mailto:#">healthcareapp@gmail.com</a><br><br>
-      <span class="glyphicon glyphicon-phone"></span> Phone: 855-474-9342
-    </div>
-  </div>
+  </section>
 </div>
