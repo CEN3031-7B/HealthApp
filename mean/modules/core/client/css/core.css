@@ -1,12 +1,9 @@
-#userInput{
-  float: right;
-  margin-top: 7px;
-}
-
-#navbreak{
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700);
+@import url(https://fonts.googleapis.com/css?family=Lora);
+#navbreak {
   padding-top: 50px;
 }
-
 .content {
   margin-top: 50px;
 }
@@ -21,7 +18,6 @@
   display: none !important;
 }
 .header-profile-image {
-  opacity: 0.8;
   height: 28px;
   width: 28px;
   border-radius: 50%;
@@ -31,11 +27,13 @@
 a:hover .header-profile-image {
   opacity: 1;
 }
-.user-header-dropdown-toggle {
-  padding-top: 11px !important;
-  padding-bottom: 11px !important;
-}
-.error-text {
+.error-text,
+.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before,
+.container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before,
+.form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before,
+.btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before,
+.navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before,
+.panel-body:after, .modal-footer:before, .modal-footer:after {
   display: none;
 }
 .has-error .help-block.error-text {
@@ -43,4 +41,232 @@ a:hover .header-profile-image {
 }
 .has-error .help-inline.error-text {
   display: inline;
+}
+/* OVerall*/
+a, a:hover {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+.container {
+  height: 100%;
+}
+/* Fonts */
+.navbar-inverse .navbar-brand {
+  font-family: 'Lora', serif;
+  text-transform: uppercase;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus, .navbar-form,
+.navbar-inverse .navbar-nav, .navbar-inverse .navbar-nav, .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > a:focus, .dropdown-menu > li > a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.btn {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+/* Homepage */
+.landing {
+  background-image: url(../img/background/healthcare-professionals.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  width: 100%;
+  height: 100vh;
+}
+.welcome {
+  color: #ffffff;
+  padding-top: 50px;
+}
+.description {
+  line-height: 25px;
+}
+/* Navbar elements */
+.navbar-header {
+  float: none;
+  padding: 0 100px;
+}
+.navbar-inverse .btn-link,
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: transparent;
+}
+.navbar-nav > li > a {
+  padding: 11px 0px;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus,
+.navbar-form {
+  background-image: none;
+  background-color: #3695eb;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #ffffff;
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus {
+  background-color: transparent;
+  color: #333333;
+}
+.navbar-nav > li > .dropdown-menu {
+  border-radius: 0;
+  border-color: transparent;
+  padding: 0;
+}
+.navbar-nav {
+  margin: 0;
+}
+.dropdown-menu .divider {
+  margin: 0;
+  height: 0;
+}
+.navbar-static-top, .navbar-fixed-top, .navbar-fixed-bottom {
+  background-color: #3695eb;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form,
+.navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+  border-color: transparent;
+  background-color: transparent;
+}
+.navbar-form {
+  padding: 0;
+  border: none;
+}
+.navbar-static-top, .navbar-fixed-top, .navbar-fixed-bottom {
+  text-align: center;
+  float: none;
+}
+.navbar-static-top, .navbar-fixed-top, .navbar-fixed-bottom {
+  background-color: none;
+}
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+  margin: 0;
+}
+.dropdown-menu > li > a{
+  padding: 6px 20px;
+}
+/* Modal */
+textarea {
+  resize: vertical;
+}
+/* Buttons */
+.btn, .alert {
+  background-image: none;
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+.btn:focus {
+  outline: none !important;
+}
+/* Patient portal */
+input {
+  width: 100%;
+}
+/* Responsiveness */
+h1 {
+  padding-top: 40px;
+}
+@media (max-width: 382px) {
+  .navbar-inverse .navbar-brand {
+    font-size: 15px;
+  }
+  form[name="userForm"] {
+      display: inline-block;
+  }
+}
+@media (min-width: 383px) {
+  form[name="userForm"] {
+    background-color: #3695eb;
+    display: inline-flex;
+  }
+}
+@media (max-width: 767px) {
+  input[id="username"], input[id="password"] {
+      width: 80%;
+  }
+  .navbar-inverse .navbar-collapse,
+  .navbar-inverse .navbar-form,
+  .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+    background-color: #3695eb;
+  }
+  .dropdown-menu {
+    text-align: center;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-nav .open .dropdown-menu,
+  .navbar .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar .navbar-nav .open .dropdown-menu > .active > a:focus,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+    background-image: none;
+    background-color: rgba(54,149,235,0.6);
+  }
+  .navbar-header {
+    margin-top: -15px;
+    padding: 0;
+  }
+  .navbar-inverse .btn-link,
+  .navbar-inverse .navbar-brand, .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus,
+  .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    background-color: #3695eb;
+    width: 100%;
+  }
+  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    padding-top: 30px;
+  }
+  .navbar-static-top, .navbar-fixed-top, .navbar-fixed-bottom,
+  .active {
+    background-color: transparent;
+  }
+  .navbar-inverse .btn-link {
+    padding: 10px;
+  }
+  .welcome {
+    padding-top: 80px;
+  }
+}
+@media (max-width: 841px) {
+  .nav > li > a {
+    padding-top: 0;
+  }
+  .navbar-nav > li > a {
+    padding-bottom: 17px;
+  }
+  .navbar-inverse .navbar-brand {
+    width: 100%;
+  }
+  .navbar-form {
+    margin: -2px;
+  }
+  h1 {
+    padding-top: 90px;
+  }
+}
+@media (min-width: 1036px) {
+  #userInput {
+    float: right;
+  }
 }
