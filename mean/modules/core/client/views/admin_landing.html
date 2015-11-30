@@ -1,31 +1,11 @@
-<div class ="container" ng-controller="AuthenticationController">
-  <div class ="row">
-    <div class = "col-md-6">
-      <h3> Know your health risk. Improve your life.</h3><hr>
-      <div style="background-color:gray; color:black; padding:20px;">
-        <p>
-          Enter the appropriate information into the Health Risk Assessment
-          Web Form to generate a <strong>free</strong> and <strong>personalized</strong>
-          health risk assessment that will encourage a healthier population and reduce
-          healthcare costs.
-        </p>
-        <p>
-          The results are generated algorithmically based on established healthcare
-          guidelines, and identifies areas such as:
-        </p>
-        <p>- healthcare prevention
-          <br>- screening
-          <br>- behavior modification
-          <br>- appropriate disease
-          <br>- specific recommendations
-          <br>- suggested wellness and prevention programs
-        </p>
+<div class="wrapper admin_landing_wrapper" >
+  <div class="admin_landing_button_div row" ng-controller = "ModalController">
+    <script type="text/ng-template" id="admin.modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Create User</h3>
       </div>
-    </div>
-    <div class = "col-md-6">
-      <h3>Create User</h3><hr>
-        <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin" novalidate autocomplete="off">
-          <div>
+        <form name="userForm" ng-submit="signup(userForm.$valid)" novalidate autocomplete="off">
+          <div class="modal-body">
             <div class="form-group" show-errors>
               <label for="username">Username</label>
               <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="Username" lowercase required>
@@ -59,7 +39,7 @@
             </div>
             <div class="form-group" show-errors>
               <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
+              <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
               <div ng-messages="userForm.password.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Password is required.</p>
                 <div ng-repeat="passwordError in passwordErrors">
@@ -75,36 +55,21 @@
               <label for="admin">Administrator?</label>
               <input type="checkbox" name="admin" id="admin" value="1" class="" ng-model="credentials.admin">
             </div>
-            <p>Text about agreeing to Terms and Conditions upon signing up.<br>
-              Also reassuring that people's information is secure.
-            </p>
             <div class="text-left form-group">
               <button type="submit" class="btn btn-primary">Create</button>
             </div>
             <div ng-show="error" class="text-center text-danger">
               <strong ng-bind="error"></strong>
             </div>
-        </div>
-      </form>
-    </div>
-  </div>
-  <hr>
-  <div class ="row">
-    <div class="col-md-6">
-      <h2> PROBLEM? LET US KNOW </h2><hr>
-      <label>Name</label>
-      <input type="text" class="form-control" placeholder="Bob Smith" required><br>
-      <label>Email</label>
-      <input type="text" class ="form-control" placeholder="BobSmith@ufl.edu" required><br>
-      <label>Message</label>
-      <textarea class="form-control" rows="5"></textarea><br>
-      <button type ="submit" class="btn btn-primary">Send</button>
-    </div>
-    <div class="col-md-6">
-      <h2> CONTACT INFO </h2><hr>
-      <span class="glyphicon glyphicon-envelope"></span>Email:
-      <a href="mailto:#">healthcareapp@gmail.com</a><br><br>
-      <span class="glyphicon glyphicon-phone"></span> Phone: 855-474-9342
-    </div>
+          </div>
+        </form>
+    </script>
+
+    <!--script type="text/ng-template" id="manage.client.view.html">
+      <div id="modal-content">
+      </div>
+    </script-->
+      <div class="col-sm-6"><button class="button_admin" ng-click="open('lg', 'admin.modal')">Manage User</button></div>
+      <div class="col-sm-6"><button class="button_patient">Manage Patient</button></div>
   </div>
 </div>

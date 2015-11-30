@@ -24,6 +24,20 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         ignoreState: true
       }
     })
+    .state('admin-landing', {
+      url: '/admin_landing',
+      templateUrl: 'modules/core/client/views/admin_landing.html',
+      data: {
+        ignoreState: false
+      }
+    })
+    .state('create-user', {
+      url: '/create_user',
+      templateUrl: 'modules/core/client/views/create.client.view.html',
+      data: {
+        ignoreState: false
+      }
+    })
     .state('bad-request', {
       url: '/bad-request',
       templateUrl: 'modules/core/client/views/400.client.view.html',

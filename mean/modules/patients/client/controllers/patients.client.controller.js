@@ -20,7 +20,8 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
 
       // Create new Patient object
       var patient = new Patients({
-        name: this.name,
+        firstname: this.firstname,
+        lastname: this.lastname,
         content: this.content
       });
 
@@ -29,7 +30,8 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
         $location.path('patients/' + response._id);
 
         // Clear form Entrys
-        $scope.name = '';
+        $scope.firstname = '';
+        $scope.lastname = '';
         $scope.content = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
@@ -89,8 +91,9 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
     $scope.addEntry = function () {
       // Create new Patient object
       var patient = new Patients({
-        name: this.name,
-        detail: this.detail
+        firstname: this.firstname,
+        lastname: this.lastname,
+        content: this.content
       });
 
       // Save data
@@ -98,8 +101,9 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
         // New object appears to be displayed immediately on the interface
         $scope.patients.push(patient);
         // Clear form Entrys
-        $scope.name = '';
-        $scope.detail = '';
+        $scope.firstname = '';
+        $scope.lastname = '';
+        $scope.content = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
