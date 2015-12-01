@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="survey.css" />
+    <script src="gen%20info%20JS.js"></script>
+  </head>
+
+<!-- Insert header here -->
+    <body>
+        <h3>EXAMINATION</h3>
+        <hr>
+        <table class="info">
+            <tr>
+                <td class="col-md-1">
+                  <h4>RESPIRATORY</h4>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="respiratory_na" />NA or Unable to assess
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="respiratory_abnormal" />Abnormal
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="respiratory_wnl" />WNL (Clear to auscultation)
+                </td>
+            </tr>
+          </table>
+          <table class="info">
+              <tr>
+                  <td class="col-md-1">
+                    Pursed Lip Breathing
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="pursedlip" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    Barrel Chest
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="barrelchest" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    Cyanosis
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="cyanosis" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbsp Location:
+                  </td>
+                  <td class="col-md-9">
+                    <input type="text" class="form-control" id="cyanosis_location">
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    Rhonchi
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="rhonchi" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbsp Location:
+                  </td>
+                  <td class="col-md-9">
+                    <input type="text" class="form-control" id="rhonchi_location">
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    Rales
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="rales" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbsp Location:
+                  </td>
+                  <td class="col-md-9">
+                    <input type="text" class="form-control" id="rales_location">
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    Wheezes
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="wheezes" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbsp Location:
+                  </td>
+                  <td class="col-md-9">
+                    <input type="text" class="form-control" id="wheezes_location">
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-2">
+                    Diminished Breath Sounds
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="sounds" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbsp Location:
+                  </td>
+                  <td class="col-md-9">
+                    <input type="text" class="form-control" id="sounds_location">
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    Tracheostomy
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="tracheostomy" />
+                  </td>
+              </tr>
+            </table>
+            <table class="info">
+                <tr>
+                    <td class="col-md-1">
+                      <h4>CARDIOVASCULAR</h4>
+                    </td>
+                    <td class="col-md-2">
+                      <input type="checkbox" name="cardio_na" />NA or Unable to assess
+                    </td>
+                    <td class="col-md-2">
+                      <input type="checkbox" name="cardio_abnormal" />Abnormal
+                    </td>
+                    <td class="col-md-2">
+                      <input type="checkbox" name="cardio_wnl" />WNL (S1S2 Normal, HRR, no adventitous sounds, no carotid bruits, no peripheral edema)
+                    </td>
+                </tr>
+              </table>
+              <table class="info">
+                  <tr>
+                      <td class="col-md-1">
+                        Carotid Bruit
+                      </td>
+                      <td class="col-md-9">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Regularly/Irregular
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="carotid_reg_ireg" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Iregularly/Irregular
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="carotid_ireg_ireg" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        S3
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="s3" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        S4
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="s4" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        Murmur
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="murmur" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Type:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="murmur_type">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        Pacemaker
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="pacemaker" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Location:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="pacemaker_location">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        ICD
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="icd" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        &nbsp &nbsp &nbsp &nbsp Location:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="icd_location">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        Edema
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="edema" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Location:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="edema_location">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Left Degree:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="edema_left">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Right Degree:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="edema_right">
+                      </td>
+                  </tr>
+                </table>
+                <table class="info">
+                    <tr>
+                        <td class="col-md-1">
+                          <h4>GASTROINTESTINAL</h4>
+                        </td>
+                        <td class="col-md-2">
+                          <input type="checkbox" name="respiratory_na" />NA or Unable to assess
+                        </td>
+                        <td class="col-md-2">
+                          <input type="checkbox" name="respiratory_abnormal" />Abnormal
+                        </td>
+                        <td class="col-md-2">
+                          <input type="checkbox" name="respiratory_wnl" />WNL (Abdoman soft, non-tender, +BS)
+                        </td>
+                    </tr>
+                  </table>
+                  <table class="info">
+                      <tr>
+                          <td class="col-md-2">
+                            Ascites
+                          </td>
+                          <td class="col-md-9">
+                            <input type="checkbox" name="ascites" />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-1">
+                            Distended Abdomen
+                          </td>
+                          <td class="col-md-9">
+                            <input type="checkbox" name="distended" />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-1">
+                            Hernia
+                          </td>
+                          <td class="col-md-9">
+                            <input type="checkbox" name="hernia" />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-1">
+                            &nbsp &nbsp &nbsp &nbsp Location:
+                          </td>
+                          <td class="col-md-9">
+                            <input type="text" class="form-control" id="hernia_location">
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-1">
+                            Bowel Sounds Absent
+                          </td>
+                          <td class="col-md-9">
+                            <input type="checkbox" name="bowelsound" />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-1">
+                            &nbsp &nbsp &nbsp &nbsp Location:
+                          </td>
+                          <td class="col-md-9">
+                            <input type="text" class="form-control" id="bowelsound_location">
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-1">
+                            Pain to Palpation
+                          </td>
+                          <td class="col-md-9">
+                            <input type="checkbox" name="palpation" />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-1">
+                            &nbsp &nbsp &nbsp &nbsp Location:
+                          </td>
+                          <td class="col-md-9">
+                            <input type="text" class="form-control" id="rales_location">
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-1">
+                            Masses
+                          </td>
+                          <td class="col-md-9">
+                            <input type="checkbox" name="masses" />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-2">
+                            Colostomy
+                          </td>
+                          <td class="col-md-9">
+                            <input type="checkbox" name="colostomy" />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-1">
+                            Ileostomy
+                          </td>
+                          <td class="col-md-9">
+                            <input type="checkbox" name="ileostomy" />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-1">
+                            PEG Tube
+                          </td>
+                          <td class="col-md-9">
+                            <input type="checkbox" name="pegtube" />
+                          </td>
+                      </tr>
+                    </table>
+    <!-- Insert pagination here -->
+    </body>
+</html>

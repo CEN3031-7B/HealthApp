@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="survey.css" />
+    <script src="gen%20info%20JS.js"></script>
+  </head>
+
+<!-- Insert header here -->
+    <body>
+        <h3>EXAMINATION</h3>
+        <hr>
+        <table class="info">
+            <tr>
+                <td class="col-md-1">
+                  <h4>NEUROLOGICAL</h4>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="neuro_na" />NA or Unable to assess
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="neuro_abnormal" />Abnormal
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="neuro_wnl" />WNL (A&O x'4, no coal or motor deficits, sensation intact, no tremors or aphasia)
+                </td>
+            </tr>
+          </table>
+          <table class="info">
+              <tr>
+                  <td class="col-md-2">
+                    Somnolent
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="somnolent" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    Tremors
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="Tremors" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbspImpaired Balance/Coordination
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="balance" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    <span class="lede">Strength Assessment</span>
+                  </td>
+                  <td class="col-md-9">
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbsp Right Upper Extremity:
+                  </td>
+                  <td class="col-md-9">
+                    <input type="text" class="form-control" id="right_upper_extremity">
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbsp Left Upper Extremity:
+                  </td>
+                  <td class="col-md-9">
+                    <input type="text" class="form-control" id="left_upper_extremity">
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbsp Right lower Extremity:
+                  </td>
+                  <td class="col-md-9">
+                    <input type="text" class="form-control" id="right_lower_extremity">
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbsp Left Lower Extremity:
+                  </td>
+                  <td class="col-md-9">
+                    <input type="text" class="form-control" id="Left_Lower_extremity">
+                  </td>
+              </tr>
+            </table>
+            <table class="info">
+                <tr>
+                    <td class="col-md-1">
+                      <h4>PSYCHOLOGICAL</h4>
+                    </td>
+                    <td class="col-md-2">
+                      <input type="checkbox" name="neuro_na" />NA or Unable to assess
+                    </td>
+                    <td class="col-md-2">
+                      <input type="checkbox" name="neuro_abnormal" />Abnormal
+                    </td>
+                    <td class="col-md-2">
+                      <input type="checkbox" name="neuro_wnl" />WNL (Appropriate, Coherent and cooperative)
+                    </td>
+                </tr>
+              </table>
+              <table class="info">
+                <tr>
+                  <td class="col-md-2">
+                      Flat Affect
+                  </td>
+                <td class="col-md-9">
+                  <input type="checkbox" name="flataffect" />
+                </td>
+              </tr>
+              <tr>
+                <td class="col-md-2">
+                    Depressed
+                </td>
+              <td class="col-md-9">
+                <input type="checkbox" name="depressed" />
+              </td>
+            </tr>
+            <tr>
+              <td class="col-md-2">
+                  Manic
+              </td>
+            <td class="col-md-9">
+              <input type="checkbox" name="Manic" />
+            </td>
+          </tr>
+          <tr>
+            <td class="col-md-2">
+                Disoriented
+            </td>
+          <td class="col-md-9">
+            <input type="checkbox" name="Disoriented" />
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+            Uncooperative
+          </td>
+          <td class="col-md-9">
+            <input type="checkbox" name="uncooperative" />
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+              Agitated
+          </td>
+          <td class="col-md-9">
+            <input type="checkbox" name="agitated" />
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+            Confused
+          </td>
+          <td class="col-md-9">
+            <input type="checkbox" name="confused" />
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-2">
+              Hostile
+          </td>
+          <td class="col-md-9">
+            <input type="checkbox" name="hostile" />
+          </td>
+        </tr>
+      </table>
+      <table class="info">
+          <tr>
+              <td class="col-md-1">
+                <h4>SKIN</h4>
+              </td>
+              <td class="col-md-2">
+                <input type="checkbox" name="neuro_na" />NA or Unable to assess
+              </td>
+              <td class="col-md-2">
+                <input type="checkbox" name="neuro_abnormal" />Abnormal
+              </td>
+              <td class="col-md-2">
+                <input type="checkbox" name="neuro_wnl" />WNL
+              </td>
+          </tr>
+        </table>
+        <table class="info">
+          <tr>
+            <td class="col-md-2">
+              Abnormality Type
+            </td>
+            <td class="col-md-9">
+              <input type="text" class="form-control" id="skin_abnormal">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-md-2">
+              Location
+            </td>
+            <td class="col-md-9">
+              <input type="text" class="form-control" id="location_abnormal">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-md-2">
+              Size LxWxD/H
+            </td>
+            <td class="col-md-9">
+              <input type="text" class="form-control" id="size_abnormal">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-md-2">
+              Description
+            </td>
+            <td class="col-md-9">
+              <input type="text" class="form-control" id="description_abnormal">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-md-2">
+              Stage of ulcer
+            </td>
+            <td class="col-md-9">
+              <input type="text" class="form-control" id="stage_abnormal">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-md-2">
+              Left/Right
+            </td>
+            <td class="col-md-9">
+              <input type="text" class="form-control" id="left_right">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-md-2">
+              Under Treatment
+            </td>
+            <td class="col-md-9">
+              <input type="text" class="form-control" id="treatment">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-md-2">
+              New wound/ulcer
+            </td>
+            <td class="col-md-9">
+              <input type="text" class="form-control" id="new">
+            </td>
+          </tr>
+          <tr>
+            <td class="col-md-2">
+              Unable to Assess
+            </td>
+            <td class="col-md-9">
+              <input type="text" class="form-control" id="unable">
+            </td>
+          </tr>
+        </table>
+      </br>
+        <span class="lede">Additional Notes:</span>
+          <input type="text" class="form-control" id="additional_notes">
+
+
+    <!-- Insert pagination here -->
+    </body>
+</html>

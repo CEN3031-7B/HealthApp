@@ -12,6 +12,7 @@
 <!-- Insert header here -->
     <body>
         <h3>REFERRALS</h3>
+        <hr>
         <table class="info">
             <tr>
                 <td>
@@ -22,7 +23,7 @@
             </tr>
             <tr>
                 <td>
-                  <input type="checkbox" name="Arthritis" />Member would benefit from advanced illness program.
+                  <input type="checkbox" name="advancedillness" />Member would benefit from advanced illness program.
                 </td>
                 <td class="col-md-3">
                 </td>
@@ -36,7 +37,7 @@
             </tr>
             <tr>
                 <td>
-                  <input type="checkbox" name="Arthritis" />Needs financial assistance paying for food and electricity (currently has both)
+                  <input type="checkbox" name="socialservices" />Needs financial assistance paying for food and electricity (currently has both)
                     and/or transportation.
                  </td>
                 <td class="col-md-3">
@@ -48,8 +49,8 @@
                   drugs, I am going to ask you a couple of financial questions - are you ok with that?
               </td>
               <td class="col-md-3">
-                  <input type="checkbox" name="Arthritis" />Yes
-                  <input type="checkbox" name="Arthritis" />No
+                  <input type="checkbox" name="questionsyes" />Yes
+                  <input type="checkbox" name="questionsno" />No
               </td>
             </tr>
           </table>
@@ -59,28 +60,28 @@
                   Is your monthly income - which would include Social Security:
               </td>
               <td class="col-md-7">
-                  <input type="checkbox" name="Arthritis" />Less than $1500 per month ($2000 per married couple) <br/>
-                  <input type="checkbox" name="Arthritis" />Greater than $1500 per month ($2000 per married couple) <br/>
-                  <input type="checkbox" name="Arthritis" />Refused
+                  <input type="checkbox" name="lessfifteen" />Less than $1500 per month ($2000 per married couple) <br/>
+                  <input type="checkbox" name="greaterfifteen" />Greater than $1500 per month ($2000 per married couple) <br/>
+                  <input type="checkbox" name="refused" />Refused
               </td>
             </tr>
             <tr>
               <td>
-                  <input type="checkbox" name="Arthritis" />Support Groups - Alzheimer's
+                  <input type="checkbox" name="alzheimer_support" />Support Groups - Alzheimer's
               </td>
               <td class="col-md-7">
               </td>
             </tr>
             <tr>
               <td>
-                  <input type="checkbox" name="Arthritis" />Support Groups - Cancer
+                  <input type="checkbox" name="cancer_support" />Support Groups - Cancer
               </td>
               <td class="col-md-7">
               </td>
             </tr>
             <tr>
               <td>
-                  <input type="checkbox" name="Arthritis" />Respite Care
+                  <input type="checkbox" name="respite_care" />Respite Care
               </td>
               <td class="col-md-7">
               </td>
@@ -99,64 +100,64 @@
                   Does the member consent to receiving a call from the Behavioral Health Team?
                 </td>
                 <td class="col-md-7">
-                  <input type="checkbox" name="Arthritis" />Yes
-                  <input type="checkbox" name="Arthritis" />No
+                  <input type="checkbox" name="callyes" />Yes
+                  <input type="checkbox" name="callno" />No
                 </td>
             </tr>
           </table>
           <table class="info">
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Member needs mental health provider
+                    <input type="checkbox" name="mentalhealth" />Member needs mental health provider
                   </td>
                   <td class="col-md-3">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Substnace abuse, interested in treatment
+                    <input type="checkbox" name="substanceabuse" />Substnace abuse, interested in treatment
                   </td>
                   <td class="col-md-3">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Alcohol abuse, interested in treatment
+                    <input type="checkbox" name="alcohalabuse" />Alcohol abuse, interested in treatment
                   </td>
                   <td class="col-md-3">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Other Mental Health Diagnosis
+                    <input type="checkbox" name="othermental" />Other Mental Health Diagnosis
                   </td>
                   <td class="col-md-3">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Bipolar disorder, not under current treatment
+                    <input type="checkbox" name="bipolar" />Bipolar disorder, not under current treatment
                   </td>
                   <td class="col-md-3">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Paranoid schizophrenia, not under current treatment
+                    <input type="checkbox" name="paranoidschizo" />Paranoid schizophrenia, not under current treatment
                   </td>
                   <td class="col-md-3">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Simple schizophrenia, inspecified, not under current treatment
+                    <input type="checkbox" name="simpleschizo" />Simple schizophrenia, inspecified, not under current treatment
                   </td>
                   <td class="col-md-3">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />PHQ9 = 15 to 20
+                    <input type="checkbox" name="phq" />PHQ9 = 15 to 20
                   </td>
                   <td class="col-md-3">
                   </td>
@@ -173,52 +174,58 @@
             </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Medications
+                    <input type="checkbox" name="meds" />Medications
                   </td>
                   <td class="col-md-8">
+                    <input type="text" class="form-control" id="meds_notes">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Lab Tests
+                    <input type="checkbox" name="labtest" />Lab Tests
                   </td>
                   <td class="col-md-8">
+                    <input type="text" class="form-control" id="labtest_notes">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Screening Studies
+                    <input type="checkbox" name="screening" />Screening Studies
                   </td>
                   <td class="col-md-8">
+                    <input type="text" class="form-control" id="screening_notes">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Vaccinations
+                    <input type="checkbox" name="vaccines" />Vaccinations
                   </td>
                   <td class="col-md-8">
-                    Herpes Zoster
+                    <input type="text" class="form-control" id="vaccines_notes">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />DME
+                    <input type="checkbox" name="dme" />DME
                   </td>
                   <td class="col-md-8">
+                    <input type="text" class="form-control" id="dme_notes">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Medication Adherence
+                    <input type="checkbox" name="adherence" />Medication Adherence
                   </td>
                   <td class="col-md-8">
+                    <input type="text" class="form-control" id="adherence_notes">
                   </td>
               </tr>
               <tr>
                   <td>
-                    <input type="checkbox" name="Arthritis" />Tobacco Cessation
+                    <input type="checkbox" name="cessation" />Tobacco Cessation
                   </td>
                   <td class="col-md-8">
+                    <input type="text" class="form-control" id="cessation_notes">
                   </td>
               </tr>
             </table>
