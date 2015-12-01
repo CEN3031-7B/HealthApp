@@ -1,7 +1,7 @@
 <div ng-controller = "ModalController">
     <script type="text/ng-template" id="myModalContent.html">
       <div class="modal-header">
-        <h3 class="modal-title">Problem? Let us know</h3>
+        <h3 class="modal-title">Problem? Let us know.</h3>
       </div>
       <div class = "modal-body">
         <form name = "contactForm" ng-submit="sendMail(contactForm.$valid)">
@@ -9,7 +9,7 @@
           <input type="text" class="form-control" placeholder="Concerned User" ng-model="message.user" required><br>
           <label>Message</label>
           <textarea class="form-control" rows="5" ng-model="message.text" required></textarea><br>
-          <p> email us at: <a> me@example.com</a> </p>
+          <p> Email us at: <a>me@example.com</a> </p>
           <div class = "modal-footer">
               <button type ="submit" class="btn btn-primary">Send</button>
               <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
@@ -17,5 +17,5 @@
         </form>
       </div>
     </script>
-    <button type="button" class="btn btn-default" ng-click="open('sm', 'myModalContent.html')">Contact Us</button>
+    <button type="button" class="btn btn-link" ng-click="open('sm', 'myModalContent.html')">Contact Us</button>
 </div>
