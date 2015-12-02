@@ -3,19 +3,17 @@
     <h1>Diseases</h1>
   </div>
   <div class="list-group">
-    <a ng-repeat="disease in diseases" ui-sref="diseases.view({diseaseId: disease._id})" class="list-group-item">
+
+    <a ng-repeat="disease in diseases|filter:search" ui-sref="diseases.view({diseaseId: disease._id})" class="list-group-item">
       <small class="list-group-item-text">
          Created on
         <span ng-bind="disease.created | date:'mediumDate'"></span>
-        by
-        <span ng-bind="disease.user.displayName"></span>
       </small>
-      <h4 class="list-group-item-heading" ng-bind="disease.title"></h4>
-      <p class="list-group-item-text" ng-bind="disease.content"></p>
+      <h4 class="list-group-item-heading" ng-bind="disease.diseaseName"></h4>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="diseases.$resolved && !diseases.length">
     No Disease please <a ui-sref="diseases.create">create one</a>?
   </div>
-  <button class="btn" ui-sref="diseases.create">Create a Disease</button>
+  <button class="btn" ui-sref="diseases.create" ng-if="(!diseases.$resolved && !diseases.length)">Create a Disease</button>
 </section>

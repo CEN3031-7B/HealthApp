@@ -1,16 +1,16 @@
 'use strict';
 
 //Disease Results Controller
-angular.module('diseases').controller('DiseasesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Diseases', 'DiseaseSuggestion',
-  function ($scope, $stateParams, $location, Authentication, Diseases, DiseaseSuggestion) {
+angular.module('diseases').controller('DiseasesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Diseases',
+  function ($scope, $stateParams, $location, Authentication, Diseases) {
 		$scope.authenitcation = Authentication;
 
 		$scope.resultsFields = ["Education", "Referrels", "Medications", "Laboratory", "Screening", "Vaccinations", "DME", "Medication Adherence"];
 
-		$scope.suggestions = [new DiseaseSuggestion()];
+		$scope.suggestions = [{}];
 
 		$scope.addSuggestion = function() {
-			$scope.suggestions.push(new DiseaseSuggestion());
+			$scope.suggestions.push({});
 		};
 
 		//Removes Suggestion from the array
@@ -26,50 +26,16 @@ angular.module('diseases').controller('DiseasesController', ['$scope', '$statePa
 				$scope.$broadcast('show-errors-check-validity', 'diseaseForm');
 
 				return false;
-			}
-
-			//Generates Disease Suggestions and an array of response Ids
-			var responseId = [];
-			// var sugg;
-			//for(sugg in $scope.suggestions) {
-				// $scope.suggestions[0].$save(function(response) {
-				// 	//console.log(response._id);
-				// 	responseId.push(response._id);
-				// }).then( function (product) {
-					
-
-				// 	var disease = new Disease({
-				// 		diseaseName: $scope.diseaseName,
-
-				// 		//Need to define suggestions as an array of disease result condition
-				// 		suggestions: responseId
-				// 	});
-
-				// 	console.log(disease);
-				// 	//Redirect after save
-				// 	disease.$save(function (response) {
-
-				// 		$location.path('diseases/' + response._id);
-
-				// 		//Clear form fields
-				// 		$scope.diseaseName ='';
-				// 		$scope.suggestions = [{}];
-				// 	}, function(err) {
-				// 		$scope.error = err.data.message;
-				// 	});
-				// });
-			//}
-				
+			}	
 
 
 					var disease = new Diseases({
 						diseaseName: $scope.diseaseName,
-
-						//Need to define suggestions as an array of disease result condition
-						//suggestions: responseId
+						suggestions: $scope.suggestions
 					});
 
 					console.log(disease);
+					console.log($scope.suggestions);
 					//Redirect after save
 					disease.$save(function (response) {
 
@@ -81,14 +47,6 @@ angular.module('diseases').controller('DiseasesController', ['$scope', '$statePa
 					}, function(err) {
 						$scope.error = err.data.message;
 					});
-			
-
-				
-
-
-
-
-
 
 		};
 
