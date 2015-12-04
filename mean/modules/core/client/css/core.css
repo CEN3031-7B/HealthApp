@@ -45,7 +45,6 @@ a:hover .header-profile-image {
 /* OVerall*/
 a, a:hover {
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
 }
 .container {
   height: 100%;
@@ -171,14 +170,23 @@ textarea {
 /* Buttons */
 .btn, .alert {
   background-image: none;
-  transition: all 0.3s ease-in-out;
   border: none;
 }
 .btn:focus {
   outline: none !important;
 }
+/* Admin Landing buttons */
+.button_admin {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin: 40px 0px;
+  width: 100%;
+}
+/* Admin landing modal */
+.makeadmin {
+}
 /* Patient portal */
-input {
+input.patientfilter {
   width: 100%;
 }
 /* Responsiveness */
@@ -189,18 +197,17 @@ h1 {
   .navbar-inverse .navbar-brand {
     font-size: 15px;
   }
-  form[name="userForm"] {
+  form.nav-form {
       display: inline-block;
   }
 }
 @media (min-width: 383px) {
-  form[name="userForm"] {
-    background-color: #3695eb;
+  form.nav-form {
     display: inline-flex;
   }
 }
 @media (max-width: 767px) {
-  input[id="username"], input[id="password"] {
+  input.nav-form {
       width: 80%;
   }
   .navbar-inverse .navbar-collapse,
