@@ -5,10 +5,11 @@ angular.module('diseases').controller('ResultsController', ['$scope', '$statePar
   function ($scope, $stateParams, $location, Authentication, Diseases) {
     $scope.authentication = Authentication;
 
-    // Find a list of results
-    $scope.find = function () {
-      $scope.suggestions = Diseases.query();
-    };
+    // Find a list of Diseases
+      $scope.find = function () {
+        $scope.diseases = Diseases.query();
+      };
+
 
     // // Find existing result for patient
     // $scope.findOne = function () {
