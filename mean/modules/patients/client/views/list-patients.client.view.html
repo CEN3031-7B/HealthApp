@@ -1,85 +1,85 @@
 <!-- Sample table of data: Add/Update/Delete on survey page;
   functionality to be applied to nested arrays ( Patient> Surgeries> surgery1,surgery2,surgery3 ) -->
 <div class="container" ng-controller="PatientsController" ng-init="find()">
-  <div class="col-md-12">
+  <!-- delete this and below -->
   <div class="page-header">
     <h1>List of Patients</h1>
   </div>
-  <input type="text" class="patientfilter" ng-model="search.lastname" placeholder="Filter by Last Name"><hr>
+  <input type="text" ng-model="search.lastname" placeholder="Filter by Last Name" size="65"><hr>
   <div class="list-group">
     <a ng-repeat="patient in patients|filter:search" ui-sref="patients.view({patientId: patient._id})" class="list-group-item">
-    <small class="list-group-item-text">
-      Created on
-      <span ng-bind="patient.created | date:'mediumDate'"></span>
-      by
-      <span ng-bind="patient.user.displayName"></span>
-    </small>
-    <h4 class="list-group-item-heading" ng-bind="patient.firstname + ' ' + patient.lastname"></h4>
-    <p class="list-group-item-text" ng-bind="patient.content"></p>
+      <small class="list-group-item-text">
+        Created on
+        <span ng-bind="patient.created | date:'mediumDate'"></span>
+        by
+        <span ng-bind="patient.user.displayName"></span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="patient.firstname + ' ' + patient.lastname"></h4>
+      <p class="list-group-item-text" ng-bind="patient.content"></p>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="patients.$resolved && !patients.length">
     No patients yet, why don't you <a ui-sref="patients.create">create one</a>?
   </div>
-  <div class="table-responsive">
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th>Delete Entry</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Condition</th>
-          <th>Add or Update Entry</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Table body: Displays info in database. -->
-        <tr ng-repeat="patient in patients" ng-show="authentication.user._id == patient.user._id">
-          <td>
-            <!-- Delete button -->
-            <a class="btn btn-warning btn-sm" ng-disabled="editEnabled[$index]" ng-click="deleteEntry($index)">
-              <i class="glyphicon glyphicon-trash"></i>
-            </a>
-          </td>
-          <td> <!-- First Name: toggles between text and input box -->
-            <span ng-bind="patient.firstname" ng-show="!editEnabled[$index]"></span>
-            <input type="text" ng-model="patient.firstname" ng-show="editEnabled[$index]">
-          </td>
-          <td> <!-- Last Name: toggles between text and input box -->
-            <span ng-bind="patient.lastname" ng-show="!editEnabled[$index]"></span>
-            <input type="text" ng-model="patient.lastname" ng-show="editEnabled[$index]">
-          </td>
-          <td> <!-- Patient's condition: toggles between text and input box -->
-            <span ng-bind="patient.content" ng-show="!editEnabled[$index]"></span>
-            <input type="text" ng-model="patient.content" ng-show="editEnabled[$index]">
-          </td>
-          <td> <!-- Edit/Update/Cancel buttons -->
-            <button class="btn btn-primary btn-sm pull-right" ng-show="!editEnabled[$index]" ng-click="editEntry($index)">Edit</button>
-            <button class="btn btn-primary btn-sm pull-right" ng-show="editEnabled[$index]" ng-click="updateEntry($index)">Update</button>
-            <button class="btn btn-warning btn-sm pull-right" ng-show="editEnabled[$index]" ng-click="cancel($index)">Cancel</button>
-          </td>
-        </tr> <!-- /.Displays info in database -->
-        <!-- Add new entry to database -->
-        <tr>
-          <td></td>
-          <td>
-            <!-- First name input box -->
-            <input type="text" placeholder="First Name" ng-model="firstname">
-          </td>
-          <td>
-            <!-- Last name input box -->
-            <input type="text" placeholder="Last Name" ng-model="lastname">
-          </td>
-          <td>
-            <!-- Condition input box -->
-            <input type="text" placeholder="Condition" ng-model="content">
-          </td>
-          <td>
-            <button class="btn btn-primary btn-sm pull-right" ng-click="addEntry()">Add</button>
-          </td>
-        </tr> <!-- /.Add new entry to database -->
-      </tbody>
-    </table>
-  </div>
+  <!-- delete this and above -->
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Delete Entry</th>
+              <th>Name</th>
+              <th>Content</th>
+              <th>Add or Update Entry</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table body: Displays info in database. -->
+            <tr ng-repeat="patient in patients" ng-show="authentication.user._id == patient.user._id">
+              <td>
+                <!-- Delete button -->
+                <a class="btn btn-danger btn-sm" ng-disabled="editEnabled[$index]" ng-click="deleteEntry($index)">
+                  <i class="glyphicon glyphicon-trash"></i>
+                </a>
+              </td>
+              <td> <!-- Name: toggles between text and input box -->
+                <span ng-bind="patient.firstname" ng-show="!editEnabled[$index]"></span>
+                <input type="text" ng-model="patient.firstname" ng-show="editEnabled[$index]">
+              </td>
+              <td> <!-- Patient's condition: toggles between text and input box -->
+                <span ng-bind="patient.content" ng-show="!editEnabled[$index]"></span>
+                <input type="text" ng-model="patient.content" ng-show="editEnabled[$index]">
+              </td>
+              <td> <!-- Edit/Update/Cancel buttons -->
+                <button class="btn btn-default btn-sm pull-right" ng-show="!editEnabled[$index]" ng-click="editEntry($index)">Edit</button>
+                <button class="btn btn-default btn-sm pull-right" ng-show="editEnabled[$index]" ng-click="updateEntry($index)">Update</button>
+                <button class="btn btn-danger btn-sm pull-right" ng-show="editEnabled[$index]" ng-click="cancel($index)">Cancel</button>
+              </td>
+            </tr> <!-- /.Displays info in database -->
+            <!-- Add new entry to database -->
+            <tr>
+              <td></td>
+              <td>
+                <!-- First name input box -->
+                <input type="text" placeholder="First Name" ng-model="firstname">
+              </td>
+              <td>
+                <!-- Last name input box -->
+                <input type="text" placeholder="Last Name" ng-model="lastname">
+              </td>
+              <td>
+                <!-- Condition input box -->
+                <input type="text" placeholder="Condition" ng-model="content">
+              </td>
+              <td>
+                <button class="btn btn-primary btn-sm pull-right" ng-click="addEntry()">Add</button>
+              </td>
+            </tr> <!-- /.Add new entry to database -->
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
