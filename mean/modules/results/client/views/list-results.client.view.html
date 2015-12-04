@@ -1,5 +1,28 @@
 <section ng-controller="ResultsController" ng-init="find()">
   <div class="page-header">
+    <h1>Diseases</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="disease in diseases" class="list-group-item">
+      <small class="list-group-item-text">
+         Created on
+        <span ng-bind="disease.created | date:'mediumDate'"></span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="disease.diseaseName"></h4>
+      <h3 class="list-group-item" ng-bind="disease.suggestions[0]"><h3>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="diseases.$resolved && !diseases.length">
+    No Disease please <a ui-sref="diseases.create">create one</a>
+  </div>
+  <button class="btn" ui-sref="diseases.create" ng-if="diseases.$resolved && diseases.length > 0">Create a Disease</button>
+</section>
+
+Change it so that it populates the disease suggestions
+--> loop through the suggestions under disease
+
+<!-- <section ng-controller="ResultsController" ng-init="find()">
+  <div class="page-header">
     <h1>Results</h1>
   </div>
   <table class="table table-striped">
@@ -7,14 +30,14 @@
       <td> Category</td>
       <td> Recommendations</td>
     </tr>
-    <!-- After adding the category and recommendation tabs
+    After adding the category and recommendation tabs
     Loop through the results to populate the table
     ng-repeat="suggestion in suggestions"
      <tr>
        <td = "suggestion.category"></td>
        <td = "suggestion.recommendations"></td>
      </tr>
-    <tr> -->
+    <tr>
       <td> Education</td>
       <td>
         <p>Tobacco Cessation</p>
@@ -72,4 +95,4 @@
       <td></td>
     </tr>
   </table>
-</section>
+</section> -->
