@@ -17,6 +17,25 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $location.path('/patients');
       }
     }
+    // Else (not logged in) cannot access any page but the index page
+    else {
+      $location.path('/');
+    }
+
+    // Title links to certain landing page based on whether an admin or a user is logged in
+    $scope.logoState = function() {
+      if ($scope.authentication.user) {
+        if ($scope.authentication.user.admin) {
+          return "admin-landing";
+        }
+        else if (!$scope.authentication.user.admin) {
+          return "patients.list";
+        }
+      }
+      else {
+        return "home";
+      }
+    };
 
     $scope.signup = function (isValid) {
       $scope.error = null;
