@@ -1,0 +1,34 @@
+<section ng-controller="DiseasesController" ng-init="findOne()">
+  <div class="page-header">
+    <h1 ng-bind="disease.diseaseName"></h1>
+  </div>
+  <div class="pull-right" ng-show="authentication.user._id == disease.user._id">
+    <a class="btn btn-primary" ui-sref="diseases.edit({diseaseId: disease._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Created On
+      <span ng-bind="disease.created | date:'mediumDate'"></span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="disease.diseaseName"> </p>
+  <h3>Suggested Treatments</h3>
+    <table class="table table-striped"ng-repeat="sugg in disease.suggestions">
+      <tr>
+        <th>Name</th>
+        <th>Field</th>
+        <th>Conditions for this treatment</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td><p ng-bind="sugg.name"></p></td>
+        <td><p ng-bind="sugg.field"></p></td>
+        <td><p class="conditions" ng-bind="sugg.specialConditionParameterName"><p  class="conditions" ng-bind="sugg.specialConditionParameterValue"></p></td>
+      </tr>
+    </tablle>
+</section>

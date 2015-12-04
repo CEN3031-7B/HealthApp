@@ -12,8 +12,11 @@ var path = require('path'),
  * Create a Disease
  */
 exports.create = function (req, res) {
+  console.log("create disease");
   var disease = new Disease(req.body);
-  disease.user = req.user;
+  console.log(disease);
+  console.log(req.body.suggestions);
+  disease.suggestions = req.body.suggestions;
 
   disease.save(function (err) {
     if (err) {
@@ -30,6 +33,7 @@ exports.create = function (req, res) {
  * Show the current disease
  */
 exports.read = function (req, res) {
+  console.log("read");
   res.json(req.disease);
 };
 
@@ -37,6 +41,7 @@ exports.read = function (req, res) {
  * Update a disease
  */
 exports.update = function (req, res) {
+  console.log("update");
   var disease = req.disease;
 
   disease.diseaseName = req.body.diseaseName;
@@ -57,6 +62,7 @@ exports.update = function (req, res) {
  * Delete a disease
  */
 exports.delete = function (req, res) {
+  console.log("delete");
   var disease = req.disease;
 
   disease.remove(function (err) {
@@ -74,7 +80,8 @@ exports.delete = function (req, res) {
  * List of Diseases
  */
 exports.list = function (req, res) {
-  Disease.find().sort('-created').populate('diseaseName', 'displayName').exec(function (err, diseases) {
+  console.log("list Disease");
+  Disease.find().sort('-created').populate('suggestions').exec(function (err, diseases) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -85,26 +92,17 @@ exports.list = function (req, res) {
   });
 };
 
+
 /**
  * Disease middleware
  */
 exports.diseaseByID = function (req, res, next, id) {
+  console.log("diseaseById");
+   Disease.findById(id).populate('suggestions').exec(function(err, disease) {
+     if (err) return next(err);
+     if(! disease) return next(new Error('Failed to load Disease' + id));
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).send({
-      message: 'Disease is invalid'
-    });
-  }
-
-  Disease.findById(id).populate('diseaseName', 'displayName').exec(function (err, disease) {
-    if (err) {
-      return next(err);
-    } else if (!disease) {
-      return res.status(404).send({
-        message: 'No Disease with that identifier has been found'
-      });
-    }
     req.disease = disease;
     next();
-  });
+  });  
 };
