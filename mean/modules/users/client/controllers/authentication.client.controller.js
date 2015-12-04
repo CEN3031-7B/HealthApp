@@ -35,7 +35,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       else {
         return "home";
       }
-    }
+    };
 
     $scope.signup = function (isValid) {
       $scope.error = null;
