@@ -8,8 +8,6 @@ var diseasesPolicy = require('../policies/diseases.server.policy'),
 
 module.exports = function (app) {
 
-console.log("export route");
-
   // Diseases collection routes
   app.route('/api/diseases').all(diseasesPolicy.isAllowed)
     .get(diseases.list)
