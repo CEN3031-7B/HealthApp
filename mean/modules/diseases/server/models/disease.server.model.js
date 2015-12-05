@@ -7,10 +7,20 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var ConditionSchema = new Schema({
+  created: {
+    type: Date,
+    default: Date.now
+  },
   diseaseName: {
     type: String,
     trim: true,
     required: 'Disease Name cannot be blank'
+  },
+  lastTreated: {
+    type: Date,
+  },
+  nextTeatment: {
+    type: Date
   },
   suggestions: [{
       name: {
@@ -30,7 +40,7 @@ var ConditionSchema = new Schema({
         type: String,
         default: ''
       }
-  }]
+  }],
 });
 
 mongoose.model('Disease', ConditionSchema);
