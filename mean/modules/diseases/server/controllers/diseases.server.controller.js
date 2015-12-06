@@ -13,9 +13,10 @@ var path = require('path'),
  */
 exports.create = function (req, res) {
   var disease = new Disease(req.body);
-  disease.user = req.user;
+  disease.suggestions = req.body.suggestions;
 
   disease.save(function (err) {
+    console.log(err);
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -38,9 +39,8 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var disease = req.disease;
-
-  disease.diseaseName = req.body.diseaseName;
   disease.suggestions = req.body.suggestions;
+  disease.diseaseName = req.body.diseaseName;
 
   disease.save(function (err) {
     if (err) {
@@ -74,7 +74,7 @@ exports.delete = function (req, res) {
  * List of Diseases
  */
 exports.list = function (req, res) {
-  Disease.find().sort('-created').populate('diseaseName', 'displayName').exec(function (err, diseases) {
+  Disease.find().sort('-created').populate('suggestions').exec(function (err, diseases) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -85,26 +85,16 @@ exports.list = function (req, res) {
   });
 };
 
+
 /**
  * Disease middleware
  */
 exports.diseaseByID = function (req, res, next, id) {
+   Disease.findById(id).populate('suggestions').exec(function (err, disease) {
+     if (err) return next(err);
+     if(! disease) return next(new Error('Failed to load Disease' + id));
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).send({
-      message: 'Disease is invalid'
-    });
-  }
-
-  Disease.findById(id).populate('diseaseName', 'displayName').exec(function (err, disease) {
-    if (err) {
-      return next(err);
-    } else if (!disease) {
-      return res.status(404).send({
-        message: 'No Disease with that identifier has been found'
-      });
-    }
     req.disease = disease;
     next();
-  });
+  });  
 };

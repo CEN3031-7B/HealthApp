@@ -6,7 +6,7 @@ angular.module('diseases').run(['Menus',
     // Add the diseases dropdown item
     Menus.addMenuItem('topbar', {
       title: 'Diseases',
-      state: 'Diseases',
+      state: 'diseases',
       type: 'dropdown',
       roles: ['*']
     });
