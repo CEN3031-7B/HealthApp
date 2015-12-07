@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="survey.css" />
+    <script src="gen%20info%20JS.js"></script>
+  </head>
+
+<!-- Insert header here -->
+    <body>
+        <h3>REFERRALS</h3>
+        <hr>
+        <table class="info">
+            <tr>
+                <td>
+                  <h4>Advanced Illness</h4>
+                </td>
+                <td class="col-md-3">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <input type="checkbox" name="advancedillness" />Member would benefit from advanced illness program.
+                </td>
+                <td class="col-md-3">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <h4>Social Services Referrals</h4>
+                </td>
+                <td class="col-md-3">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <input type="checkbox" name="socialservices" />Needs financial assistance paying for food and electricity (currently has both)
+                    and/or transportation.
+                 </td>
+                <td class="col-md-3">
+                </td>
+            </tr>
+            <tr>
+              <td>
+                  In order to see if you qualify for any financial assistance programs that could help you with your medical or prescription
+                  drugs, I am going to ask you a couple of financial questions - are you ok with that?
+              </td>
+              <td class="col-md-3">
+                  <input type="checkbox" name="questionsyes" />Yes
+                  <input type="checkbox" name="questionsno" />No
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td>
+                  Is your monthly income - which would include Social Security:
+              </td>
+              <td class="col-md-7">
+                  <input type="checkbox" name="lessfifteen" />Less than $1500 per month ($2000 per married couple) <br/>
+                  <input type="checkbox" name="greaterfifteen" />Greater than $1500 per month ($2000 per married couple) <br/>
+                  <input type="checkbox" name="refused" />Refused
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <input type="checkbox" name="alzheimer_support" />Support Groups - Alzheimer's
+              </td>
+              <td class="col-md-7">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <input type="checkbox" name="cancer_support" />Support Groups - Cancer
+              </td>
+              <td class="col-md-7">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <input type="checkbox" name="respite_care" />Respite Care
+              </td>
+              <td class="col-md-7">
+              </td>
+            </tr>
+        </table>
+        <table class="info">
+            <tr>
+                <td>
+                  <h4>BEHAVIORAL HEALTH REFERRALS</h4>
+                </td>
+                <td class="col-md-3">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  Does the member consent to receiving a call from the Behavioral Health Team?
+                </td>
+                <td class="col-md-7">
+                  <input type="checkbox" name="callyes" />Yes
+                  <input type="checkbox" name="callno" />No
+                </td>
+            </tr>
+          </table>
+          <table class="info">
+              <tr>
+                  <td>
+                    <input type="checkbox" name="mentalhealth" />Member needs mental health provider
+                  </td>
+                  <td class="col-md-3">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="substanceabuse" />Substnace abuse, interested in treatment
+                  </td>
+                  <td class="col-md-3">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="alcohalabuse" />Alcohol abuse, interested in treatment
+                  </td>
+                  <td class="col-md-3">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="othermental" />Other Mental Health Diagnosis
+                  </td>
+                  <td class="col-md-3">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="bipolar" />Bipolar disorder, not under current treatment
+                  </td>
+                  <td class="col-md-3">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="paranoidschizo" />Paranoid schizophrenia, not under current treatment
+                  </td>
+                  <td class="col-md-3">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="simpleschizo" />Simple schizophrenia, inspecified, not under current treatment
+                  </td>
+                  <td class="col-md-3">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="phq" />PHQ9 = 15 to 20
+                  </td>
+                  <td class="col-md-3">
+                  </td>
+              </tr>
+            </table>
+          </table>
+          <table class="info">
+            <tr>
+                <td>
+                  <h4>RECOMMENDATIONS</h4>
+                </td>
+                <td class="col-md-8">
+                </td>
+            </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="meds" />Medications
+                  </td>
+                  <td class="col-md-8">
+                    <input type="text" class="form-control" id="meds_notes">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="labtest" />Lab Tests
+                  </td>
+                  <td class="col-md-8">
+                    <input type="text" class="form-control" id="labtest_notes">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="screening" />Screening Studies
+                  </td>
+                  <td class="col-md-8">
+                    <input type="text" class="form-control" id="screening_notes">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="vaccines" />Vaccinations
+                  </td>
+                  <td class="col-md-8">
+                    <input type="text" class="form-control" id="vaccines_notes">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="dme" />DME
+                  </td>
+                  <td class="col-md-8">
+                    <input type="text" class="form-control" id="dme_notes">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="adherence" />Medication Adherence
+                  </td>
+                  <td class="col-md-8">
+                    <input type="text" class="form-control" id="adherence_notes">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <input type="checkbox" name="cessation" />Tobacco Cessation
+                  </td>
+                  <td class="col-md-8">
+                    <input type="text" class="form-control" id="cessation_notes">
+                  </td>
+              </tr>
+            </table>
+        <!-- Insert pagination here -->
+    </body>
+</html>

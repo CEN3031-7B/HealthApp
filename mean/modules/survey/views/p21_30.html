@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="survey.css" />
+    <script src="gen%20info%20JS.js"></script>
+  </head>
+
+<!-- Insert header here -->
+    <body>
+        <h3>Diagnosis Confirmation</h3>
+        <hr>
+        <p>Please confirm the diagnoses for the member</p>
+        <table class="info">
+            <tr>
+                <td class="col-md-1">
+                  <p>Diagnosis</p>
+                </td>
+                <td class="col-md-2">
+                  <p>Active</p>
+                </td>
+                <td class="col-md-2">
+                  <p>Assessment</p>
+                </td>
+                <td class="col-md-2">
+                  <p> Plan </p>
+                </td>
+                <td class="col-md-3">
+                  <p> Notes </p>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Arthritis-Osteo</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="arthritis" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="arthritis_stable" />Stable <br/>
+                  <input type="checkbox" name="arthritis_unstable" />Unstable <br/>
+                  <input type="checkbox" name="arthritis_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="arthritis_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="arthritis_patient" />Patient education <br/>
+                  <input type="checkbox" name="arthritis_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="arthritis_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="arthritis_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="arthritis_notes">
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Chronic Asthma</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="Asthma" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="asthma_stable" />Stable <br/>
+                  <input type="checkbox" name="asthma_unstable" />Unstable <br/>
+                  <input type="checkbox" name="asthma_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="asthma_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="asthma_patient" />Patient education <br/>
+                  <input type="checkbox" name="asthma_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="asthma_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="asthma_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="asthma_notes">
+                </td>
+            </tr>
+        </table>
+        <!-- Insert pagination here -->
+    </body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="survey.css" />
+    <script src="gen%20info%20JS.js"></script>
+  </head>
+
+<!-- Insert header here -->
+    <body>
+        <h3>EXAMINATION</h3>
+        <hr>
+        <table class="info">
+            <tr>
+                <td class="col-md-1">
+                  <h4>GENITOURINARY</h4>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="genit_na" />NA or Unable to assess
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="genit_abnormal" />Abnormal
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="genit_wnl" />WNL (No CVAT, no catheter or ostomy device)
+                </td>
+            </tr>
+          </table>
+          <table class="info">
+              <tr>
+                  <td class="col-md-2">
+                    CVA Tenderness
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="cva" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    Urostomy
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="urostomy" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    Catheter
+                  </td>
+                  <td class="col-md-9">
+                    <input type="checkbox" name="catheter" />
+                  </td>
+              </tr>
+              <tr>
+                  <td class="col-md-1">
+                    &nbsp &nbsp &nbsp &nbsp Type:
+                  </td>
+                  <td class="col-md-9">
+                    <input type="text" class="form-control" id="catheter_type">
+                  </td>
+              </tr>
+            </table>
+            <table class="info">
+                <tr>
+                    <td class="col-md-1">
+                      <h4>MUSCULOSKELETAL AND LE</h4>
+                    </td>
+                    <td class="col-md-2">
+                      <input type="checkbox" name="genit_na" />NA or Unable to assess
+                    </td>
+                    <td class="col-md-2">
+                      <input type="checkbox" name="genit_abnormal" />Abnormal
+                    </td>
+                    <td class="col-md-2">
+                      <input type="checkbox" name="genit_wnl" />WNL
+                    </td>
+                </tr>
+              </table>
+              <table class="info">
+                  <tr>
+                      <td class="col-md-2">
+                        Amputations
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="amputations" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Type:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="amputation_type">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Abnormal Gait
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="abnormalgait" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Shuffle Gait
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="shufflegait" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Stiffness in Neck and Extremities
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="stiffness" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Muscle Rigidity
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="muscle" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Cog Wheeling
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="cog" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Pill Rolling
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="pillrolling" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        ROM Abnormal
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="rom" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Location:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="rom_location">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Joint Swelling
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="joint" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Location:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="joint_location">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Crepitus
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="crepitus" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Swan neck deformity
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="neckdeformity">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Erythema
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="erythema" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Location:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="erythema_location">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Cool Extremities
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="extremities" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Location:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="extremities_location">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Hair Loss
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="hairloss" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Location:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="joint_location">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        Venous Stasis
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="venousstasis">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        Varicosities/Varicose Veins
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="Varicose">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Posterior Tibial Pulses Abn
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="tibial_pulses" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Describe Right:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="tibial_describe_right">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Describe Left:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="tibial_describe_left">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-2">
+                        Pedal Pulses Abnormal
+                      </td>
+                      <td class="col-md-9">
+                        <input type="checkbox" name="pedal_pulses" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Describe Right:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="pedal_describe_right">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        &nbsp &nbsp &nbsp &nbsp Describe Left:
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="pedal_describe_left">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        Clubbing
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="clubbing">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="col-md-1">
+                        Abnormal Capillary Refill
+                      </td>
+                      <td class="col-md-9">
+                        <input type="text" class="form-control" id="abnomral_cap">
+                      </td>
+                  </tr>
+                </table>
+                <table class="info">
+                    <tr>
+                        <td class="col-md-1">
+                          <h4>MONOFILAMENT EXAM</h4>
+                        </td>
+                        <td class="col-md-2">
+                          <input type="checkbox" name="mono_exam" />Refused
+                        </td>
+                    </tr>
+                  </table>
+                  <table class="info">
+                      <tr>
+                          <td class="col-md-2">
+                            Right Foot
+                          </td>
+                          <td class="col-md-9">
+                            <input type="text" class="form-control" id="right_foot_mono">
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="col-md-2">
+                            Left Foot
+                          </td>
+                          <td class="col-md-9">
+                            <input type="text" class="form-control" id="left_foot_mono">
+                          </td>
+                      </tr>
+                    </table>
+                    <table class="info">
+                        <tr>
+                            <td class="col-md-1">
+                              <h4>VIBRATORY EXAM</h4>
+                            </td>
+                            <td class="col-md-2">
+                              <input type="checkbox" name="vibra_exam" />Refused
+                            </td>
+                        </tr>
+                      </table>
+                      <table class="info">
+                          <tr>
+                              <td class="col-md-2">
+                                Right Foot
+                              </td>
+                              <td class="col-md-9">
+                                <input type="text" class="form-control" id="right_foot_vibra">
+                              </td>
+                          </tr>
+                          <tr>
+                              <td class="col-md-2">
+                                Left Foot
+                              </td>
+                              <td class="col-md-9">
+                                <input type="text" class="form-control" id="left_foot_vibra">
+                              </td>
+                          </tr>
+                        </table>
+                        <table class="info">
+                            <tr>
+                                <td class="col-md-1">
+                                  <h4>ACHIILLES REFLEX TESTING</h4>
+                                </td>
+                                <td class="col-md-2">
+                                  <input type="checkbox" name="achilles_exam" />Refused
+                                </td>
+                            </tr>
+                          </table>
+                          <table class="info">
+                              <tr>
+                                  <td class="col-md-2">
+                                    Right:
+                                  </td>
+                                  <td class="col-md-9">
+                                    <input type="text" class="form-control" id="right_achilles">
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="col-md-2">
+                                    Left:
+                                  </td>
+                                  <td class="col-md-9">
+                                    <input type="text" class="form-control" id="left_achilles">
+                                  </td>
+                              </tr>
+                            </table>
+                            <table class="info">
+                                <tr>
+                                    <td class="col-md-1">
+                                      <h4>FOOT EXAM</h4>
+                                    </td>
+                                    <td class="col-md-2">
+                                      <input type="checkbox" name="foot_exam" />NA or Unable to Assess
+                                    </td>
+                                </tr>
+                              </table>
+                              <table class="info">
+                                <tr>
+                                    <td class="col-md-2">
+                                      Infection
+                                    </td>
+                                    <td class="col-md-9">
+                                      <input type="checkbox" name="infection" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-2">
+                                      Deformity
+                                    </td>
+                                    <td class="col-md-9">
+                                      <input type="checkbox" name="deformity" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-2">
+                                      Ulceration
+                                    </td>
+                                    <td class="col-md-9">
+                                      <input type="checkbox" name="ulceration" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-2">
+                                      Gangrene
+                                    </td>
+                                    <td class="col-md-9">
+                                      <input type="checkbox" name="gangrene" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-1">
+                                      &nbsp &nbsp &nbsp &nbsp Describe:
+                                    </td>
+                                    <td class="col-md-9">
+                                      <input type="text" class="form-control" id="gangrene_describe">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-2">
+                                      Callous or Corn
+                                    </td>
+                                    <td class="col-md-9">
+                                      <input type="checkbox" name="callous" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-2">
+                                      Nails Thick/Fungus
+                                    </td>
+                                    <td class="col-md-9">
+                                      <input type="checkbox" name="nails" />
+                                    </td>
+                                </tr>
+                              </table>
+    <!-- Insert pagination here -->
+    </body>
+</html>

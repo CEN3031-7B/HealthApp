@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="survey.css" />
+    <script src="gen%20info%20JS.js"></script>
+  </head>
+
+<!-- Insert header here -->
+    <body>
+        <h3>Diagnosis Confirmation</h3>
+        <hr>
+        <p>Please confirm the diagnoses for the member</p>
+        <table class="info">
+            <tr>
+                <td class="col-md-1">
+                  <p>Diagnosis</p>
+                </td>
+                <td class="col-md-2">
+                  <p>Active</p>
+                </td>
+                <td class="col-md-2">
+                  <p>Assessment</p>
+                </td>
+                <td class="col-md-2">
+                  <p> Plan </p>
+                </td>
+                <td class="col-md-3">
+                  <p> Notes </p>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Angina - Stable</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="angina" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="angina_stable" />Stable <br/>
+                  <input type="checkbox" name="angina_unstable" />Unstable <br/>
+                  <input type="checkbox" name="angina_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="angina_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="angina_patient" />Patient education <br/>
+                  <input type="checkbox" name="angina_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="angina_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="angina_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="angina_notes">
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Coronary artery disease</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="artery" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="artery_stable" />Stable <br/>
+                  <input type="checkbox" name="artery_unstable" />Unstable <br/>
+                  <input type="checkbox" name="artery_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="artery_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="artery_patient" />Patient education <br/>
+                  <input type="checkbox" name="artery_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="artery_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="artery_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="artery_notes">
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>History of Myocardial infarction</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="myo" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="myo_stable" />Stable <br/>
+                  <input type="checkbox" name="myo_unstable" />Unstable <br/>
+                  <input type="checkbox" name="myo_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="myo_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="myo_patient" />Patient education <br/>
+                  <input type="checkbox" name="myo_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="myo_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="myo_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="myo_notes">
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Hyperlipidemia</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="hyperlipid" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="hyperlipid_stable" />Stable <br/>
+                  <input type="checkbox" name="hyperlipid_unstable" />Unstable <br/>
+                  <input type="checkbox" name="hyperlipid_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="hyperlipid_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="hyperlipid_patient" />Patient education <br/>
+                  <input type="checkbox" name="hyperlipid_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="hyperlipid_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="hyperlipid_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="hyperlipid_notes">
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Hypertension</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="hypertension" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="hypertension_stable" />Stable <br/>
+                  <input type="checkbox" name="hypertension_unstable" />Unstable <br/>
+                  <input type="checkbox" name="hypertension_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="hypertension_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="hypertension_patient" />Patient education <br/>
+                  <input type="checkbox" name="hypertension_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="hypertension_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="hypertension_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="hypertension_notes">
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Chronic Pain</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="pain" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="pain_stable" />Stable <br/>
+                  <input type="checkbox" name="pain_unstable" />Unstable <br/>
+                  <input type="checkbox" name="pain_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="pain_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="pain_patient" />Patient education <br/>
+                  <input type="checkbox" name="pain_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="pain_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="pain_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="pain_notes">
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Morbid Obesity (Body mass index > 40)</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="obesity" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="obesity_stable" />Stable <br/>
+                  <input type="checkbox" name="obesity_unstable" />Unstable <br/>
+                  <input type="checkbox" name="obesity_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="obesity_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="obesity_patient" />Patient education <br/>
+                  <input type="checkbox" name="obesity_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="obesity_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="obesity_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="obesity_notes">
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Gastroesophageal reflux disease</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="gastro" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="gastro_stable" />Stable <br/>
+                  <input type="checkbox" name="gastro_unstable" />Unstable <br/>
+                  <input type="checkbox" name="gastro_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="gastro_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="gastro_patient" />Patient education <br/>
+                  <input type="checkbox" name="gastro_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="gastro_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="gastro_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="gastro_notes">
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Vision impairment</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="vision" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="vision_stable" />Stable <br/>
+                  <input type="checkbox" name="vision_unstable" />Unstable <br/>
+                  <input type="checkbox" name="vision_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="vision_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="vision_patient" />Patient education <br/>
+                  <input type="checkbox" name="vision_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="vision_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="vision_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="vision_notes">
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-1">
+                  <p>Chronic Aspirin Therapy</p>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="aspirin" />
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="aspirin_stable" />Stable <br/>
+                  <input type="checkbox" name="aspirin_unstable" />Unstable <br/>
+                  <input type="checkbox" name="aspirin_controlled" />Suboptimally Controlled <br/>
+                </td>
+                <td class="col-md-2">
+                  <input type="checkbox" name="aspirin_therapy" />Continue Therapy <br/>
+                  <input type="checkbox" name="aspirin_patient" />Patient education <br/>
+                  <input type="checkbox" name="aspirin_pcp" />FU with PCP <br/>
+                  <input type="checkbox" name="aspirin_specialist" />FU with Specialist <br/>
+                  <input type="checkbox" name="aspirin_er" />Send to ER or Urgent Care <br/>
+                </td>
+                <td class="col-md-3">
+                  <input type="text" class="form-control" id="aspirin_notes">
+                </td>
+            </tr>
+        </table>
+        <!-- Insert pagination here -->
+    </body>
+</html>
