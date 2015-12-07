@@ -67,6 +67,33 @@ angular.module('users').config(['$stateProvider',
       .state('password.reset.form', {
         url: '/:token',
         templateUrl: 'modules/users/client/views/password/reset-password.client.view.html'
+      })
+      .state('users', {
+        abstract: true,
+        url: '/users',
+        template: '<ui-view/>'
+      })
+      .state('users.list', {
+        url: '',
+        templateUrl: 'modules/users/client/views/list-users.client.view.html'
+      })
+      .state('users.create', {
+        url: '/create/users',
+        templateUrl: 'modules/users/client/views/create-user.client.view.html',
+        data: {
+          roles: ['user', 'admin']
+        }
+      })
+      .state('users.view', {
+        url: '/:userId',
+        templateUrl: 'modules/users/client/views/view-user.client.view.html'
+      })
+      .state('users.edit', {
+        url: '/:userId/edit',
+        templateUrl: 'modules/users/client/views/edit-user.client.view.html',
+        data: {
+          roles: ['user', 'admin']
+        }
       });
   }
 ]);
