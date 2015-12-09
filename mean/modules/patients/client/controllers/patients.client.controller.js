@@ -1,12 +1,64 @@
 'use strict';
 
 // Patients controller
-angular.module('patients').controller('PatientsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Patients',
-  function ($scope, $stateParams, $location, Authentication, Patients) {
+angular.module('patients').controller('PatientsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Patients', 'Diseases',
+  function ($scope, $stateParams, $location, Authentication, Patients, Diseases) {
     $scope.authentication = Authentication;
+
+    $scope.arr = ["Date of Birth", "Gender", "Phone Number", "Address", "Name of Plan", "Alternate Phone Number",
+    "Preferred Language", "Name of Medical Practitioner"];
+    $scope.number = ["Weight", "Age", "LDL", "Blood Pressure"];
+
+    $scope.arrObj = [];
+    $scope.numberObj = [];
+    $scope.dN = [];
+
+    $scope.getNameArr = function(i) {
+      return $scope.arr[i];
+    };
+    $scope.getNameNumber = function(i) {
+    return $scope.number[i];
+    };
+    $scope.findDisease = function () {
+      $scope.diseases = Diseases.query();
+    };
+
+    $scope.currentPage = 1;
+
+    $scope.pages = [
+    "/modules/patients/client/views/p1.view.html",
+    "/modules/patients/client/views/p2.view.html",
+    "/modules/patients/client/views/p3.view.html"];
+    $scope.lastPage = $scope.pages.length;
 
     // Status of edit button in order to show/hide certain buttons on survey page
     $scope.editEnabled = [];
+
+    $scope.incrementPage = function() {
+      $scope.currentPage++;
+    };
+
+    $scope.goNext = function() {
+      if($scope.currentPage < $scope.lastPage) {
+        //insert logic based on answers
+        $scope.currentPage++;
+      }
+    };
+
+    $scope.goBack = function() {
+      if($scope.currentPage > 1) {
+        //insert logic based on answers?
+        $scope.currentPage--;
+      }
+    };
+
+    $scope.previousDisabled = function() {
+      return $scope.currentPage === 1 ? "disabled" : "";
+    };
+
+    $scope.nextDisabled = function() {
+      return $scope.currentPage === $scope.lastPage ? "disabled" : "";
+    };
 
     // Create new Patient
     $scope.create = function (isValid) {
@@ -22,17 +74,23 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
       var patient = new Patients({
         firstname: this.firstname,
         lastname: this.lastname,
-        content: this.content
+        patientInfo: $scope.arrObj,
+        hasDisease: $scope.dN,
+        vitalStats: $scope.numberObj
       });
 
       // Redirect after save
       patient.$save(function (response) {
-        $location.path('patients/' + response._id);
+        console.log($scope.arrObj);
+        console.log($scope.numberObj);
+        $location.path('patients');
 
-        // Clear form Entrys
-        $scope.firstname = '';
-        $scope.lastname = '';
-        $scope.content = '';
+         // Clear form Entrys
+        $scope.firstname ='';
+        $scope.lastname ='';
+   			$scope.arrObj = [{}];
+   			$scope.numberObj = [{}];
+   			$scope.dN = [{}];
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
@@ -66,10 +124,16 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
       }
 
       var patient = $scope.patient;
+      console.log(patient.patientInfo);
+      patient.patientInfo = $scope.arrObj;
+      patient.hasDisease = $scope.dN;
+      patient.vitalStats = $scope.numberObj;
 
-      patient.$update(function () {
-        $location.path('patients/' + patient._id);
-      }, function (errorResponse) {
+      patient.$update(
+        function () {
+        $location.path('patients');
+      },
+      function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
     };
