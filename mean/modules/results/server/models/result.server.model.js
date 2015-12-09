@@ -7,9 +7,9 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 /**
- * Patient Schema
+ * result Schema
  */
-var PatientSchema = new Schema({
+var ResultSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
@@ -50,4 +50,4 @@ var PatientSchema = new Schema({
   }],
 });
 
-mongoose.model('Patient', PatientSchema);
+mongoose.model('Result', ResultSchema);

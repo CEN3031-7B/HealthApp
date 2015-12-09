@@ -1,26 +1,63 @@
-<section ng-controller="ResultsController" ng-init="find()">
-  <div class="page-header">
-    <h1>Results</h1>
-  </div>
-  <table class="table table-striped">
-    <tr class = "info">
-      <td> Category</td>
-      <td> Recommendations</td>
-    </tr>
-    <tr ng-repeat="result in resultsFields" class = "active">
-      <td ng-bind="result"></td>
-      <td>
-        <div ng-repeat="disease in diseases">
-            <div ng-repeat ="suggestions in disease.suggestions|filter:result">
-              <p> {{suggestions.name}} </p>
-              <!-- Need to add an automatic date referenced, view when creating users
-              Need to add an editable field that has suggested next date -->
-              <!-- If we want to add other recommendations -->
-              <!-- <p> {{suggestions.specialConditionParameterValue}} </p>
-              <p> {{suggestions.specialConditionParameterName}} </p> -->
+<div class="container" ng-controller="ResultsController" ng-init="find()">
+  <section ng-controller="ResultsController" ng-init="find()">
+    <div class="page-header">
+      <h1>Results for {{fName}} {{lName}}</h1>
+    </div>
+    <form name="tableForm" class="form-horizontal" ng-submit="update(tableForm.$valid)" novalidate>
+      <table class="table table-striped">
+        <tr class = "info">
+          <td> Category</td>
+          <td> Recommendations</td>
+          <td> Last Treated </td>
+          <td> Next Treatment </td>
+        </tr>
+        <tr ng-repeat="result in resultsFields" class = "active">
+          <td ng-bind="result"></td>
+          <td>
+            <div ng-repeat="disease in diseases">
+              <div ng-repeat ="suggestions in disease.suggestions|filter:result">
+                <div ng-repeat="patient in patients|filter:fName |filter:lName">
+                  <div ng-repeat="hasDisease in patient.hasDisease|filter:search">
+                    <div ng-if="disease.diseaseName == hasDisease.title">
+                      <p> {{suggestions.name}} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-     </td>
-    </tr>
-  </table>
-</section>
+          </td>
+        <td>
+          <div ng-repeat="disease in diseases">
+           <div ng-repeat ="suggestions in disease.suggestions|filter:result">
+             <div ng-repeat="patient in patients">
+               <div ng-repeat="hasDisease in patient.hasDisease|filter:search">
+                 <div ng-if="disease.diseaseName == hasDisease.title">
+                   <div>
+                     <input name="lastTreated" type="text" ng-model="suggestions.lastTreated" id="lasttreated" class="form-control" placeholder={{suggestions.lastTreated}}>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+          </div>
+         </td>
+         <td>
+           <div ng-repeat="disease in diseases">
+             <div ng-repeat ="suggestions in disease.suggestions|filter:result">
+               <div ng-repeat="patient in patients">
+                 <div ng-repeat="hasDisease in patient.hasDisease|filter:search">
+                   <div ng-if="disease.diseaseName == hasDisease.title">
+                     <div>
+                       <input name="nextTeatment" type="text" ng-model="suggestions.nextTeatment" id="nexttreatment" class="form-control" placeholder="mm/dd/yyy" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </section>
+</div>

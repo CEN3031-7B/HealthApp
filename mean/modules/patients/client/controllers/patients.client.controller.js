@@ -1,8 +1,8 @@
 'use strict';
 
 // Patients controller
-angular.module('patients').controller('PatientsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Patients',
-  function ($scope, $stateParams, $location, Authentication, Patients) {
+angular.module('patients').controller('PatientsController', ['$scope', '$stateParams', '$location', '$rootScope','Authentication', 'Patients',
+  function ($scope, $stateParams, $location, $rootScope, Authentication, Patients) {
     $scope.authentication = Authentication;
 
     // Status of edit button in order to show/hide certain buttons on survey page
@@ -53,6 +53,11 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
           $location.path('patients');
         });
       }
+    };
+
+    $scope.setResults = function(patient){
+      $rootScope.fName = patient.firstname;
+      $rootScope.lName = patient.lastname;
     };
 
     // Update existing Patient
