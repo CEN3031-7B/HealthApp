@@ -26,5 +26,29 @@ angular.module('users').config(['$httpProvider',
         };
       }
     ]);
+    angular.module('users').run(['Menus',
+      function (Menus) {
+        // Add the users dropdown item
+        Menus.addMenuItem('topbar', {
+          title: 'Users',
+          state: 'users',
+          type: 'dropdown',
+          roles: ['*']
+        });
+
+        // Add the dropdown list item
+        Menus.addSubMenuItem('topbar', 'users', {
+          title: 'List Users',
+          state: 'users.list'
+        });
+
+        // Add the dropdown create item
+        Menus.addSubMenuItem('topbar', 'users', {
+          title: 'Create Users',
+          state: 'users.create',
+          roles: ['user']
+        });
+      }
+    ]);
   }
 ]);
