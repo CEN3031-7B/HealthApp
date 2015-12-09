@@ -7,3 +7,5 @@ There are two levels of authentication: User and administrator. A user is only a
 Patients in the list can be identified by both first and last name and, in the case of patients with the same name, their date of birth. A dynamic search bar immediately begins filtering patients as the user types. For example, if the user types "J" in the search bar, only users whose names contain a "J" would show up.
 
 There is also a contact us feature so that, if the user encounters an problem or has a question, they can inform the master administrator (our client) and resolve the issue quickly.
+
+The app is hosted externally using the Heroku platform and has been throughly tested using the Protractor framework. 
