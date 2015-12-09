@@ -24,6 +24,7 @@ The three states for users of the app are unauthenticated, admin, and (non-admin
 * open contact modal
 * send email using Outlook
 * invalid login (not tested with protractor)
+
 #### Admin users ####
 * should see admin landing
 * should not see pages of other states
@@ -32,17 +33,20 @@ The three states for users of the app are unauthenticated, admin, and (non-admin
 * test sign out (not tested with protractor)
 * open contact modal
 * send mail through Outlook
+
 #### (Non-admin) users ####
 * should see Patient Portal
 * should not see pages of other states
 * test sign out (not tested with protractor)
 * open contact modal
 * send mail through Outlook
+
 #### Patient Portal ####
 * should have input box that filters by last name
 * PATIENT PAGE SHOULD DISPLAY INFORMATION (does not currently work 12/09/15)
 * Adding/deleting/updating should work; reflect changes in database
 * Add/remove condition
+
 #### Diseases ####
 * URL should match disease database id
  * Adding/deleting/editing should work; reflect changes in database
