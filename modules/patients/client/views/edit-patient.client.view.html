@@ -13,27 +13,29 @@
           </div>
         </div>
 
-        <div class="form-group" show-errors>
-          <h3>Last Name:</h3>
-          <input name="lastname" type="text" ng-model="patient.lastname" id="lastname" class="form-control" placeholder="First Name" required>
-          <div ng-messages="patientForm.lastname.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Last Name is required</p>
-          </div>
-        </div>
-        <div class="form-group" ng-repeat="disease in diseases">
-          <label for="diseaseInput">Do you have {{hasDisease[$index].title=disease.diseaseName}}?</label>
-          <input type="checkbox" name="diseaseInput" ng-model="hasDisease[$index].content" ng-true-value="true" ng-false-value="false">
-        </div>
-        <hr>
-        <div class="form-group" ng-repeat="ar in arr">
-          <label for="arrInput">{{arrObj[$index].title=getNameArr($index)}}: </label>
-          <input type="text" name="arrInput" ng-model="arrObj[$index].content">
-        </div>
-        <hr>
-        <div class="form-group" ng-repeat="numbe in number">
-          <label for="numberInput">{{numberObj[$index].title=getNameNumber($index)}}: </label>
-          <input name="numberInput" type="text" ng-model="numberObj[$index].content">
-        </div>
+        <h2>Patient Information</h2>
+        <table ng-repeat="ar in arr" class="table">
+          <tr>
+            <td class="half">{{arrObj[$index].title=getNameArr($index)}}:</td>
+            <td class="half"><input type="text" name="arrInput" ng-model="arrObj[$index].content"></td>
+          </tr>
+        </table>
+        <br>
+        <h2>Vitals</h2>
+        <table ng-repeat="numbe in number" class="table">
+          <tr>
+            <td class="half">{{numberObj[$index].title=getNameNumber($index)}}:</td>
+            <td class="half"><input name="numberInput" type="text" ng-model="numberObj[$index].content"></td>
+          </tr>
+        </table>
+        <br>  
+        <h2>Diseases</h2>
+        <table ng-repeat="disease in diseases" class="table">
+          <tr>
+            <td class="half">Do you have {{hasDisease[$index].title=disease.diseaseName}}?</td>
+            <td class="half"><input type="checkbox" name="diseaseInput" ng-model="hasDisease[$index].content" ng-true-value="true" ng-false-value="false"></td>
+          </tr>
+        </table>
 <hr>
 
         <div class="form-group">
