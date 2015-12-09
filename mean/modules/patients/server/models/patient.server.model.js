@@ -59,7 +59,26 @@ var PatientSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
-  }
+  },
+  results: [{
+      name: {
+        type: String,
+        trim: true,
+        required: 'Suggested Treatment Name cannot be blank'
+      },
+      field: {
+        type: String,
+        required: 'Field is required'
+      },
+      specialConditionParameterName: {
+        type: String,
+        default: ''
+      },
+      specialConditionParameterValue: {
+        type: String,
+        default: ''
+      }
+  }],
 });
 
 mongoose.model('Patient', PatientSchema);
