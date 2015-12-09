@@ -17,33 +17,33 @@ The app is hosted externally using the Heroku platform and has been tested using
 
 ### Testing with Protractor ###
 The three states for users of the app are unauthenticated, admin, and (non-admin) user. They each have a corresponding conf-*.js file (conf-admin.js and conf-user.js sign in the user to the proper state and prepare for testing). 
-* #### Unauthenticated users ####
- *should see sign-in landing page
- *should not see pages of other states
- *attempts to access other pages via URL are redirected
- *open contact modal
- *send email using Outlook
- *invalid login (not tested with protractor)
-* #### Admin users ####
- * should see admin landing
- * should not see pages of other states
- * buttons function correctly (patient portal/create user modal/user portal)
- * should be able to change admin state of another user (not tested with protractor)
- * test sign out (not tested with protractor)
- * open contact modal
- * send mail through Outlook
-* #### (Non-admin) users ####
- * should see Patient Portal
- * should not see pages of other states
- * test sign out (not tested with protractor)
- * open contact modal
- * send mail through Outlook
-* #### Patient Portal ####
- * should have input box that filters by last name
- * PATIENT PAGE SHOULD DISPLAY INFORMATION (does not currently work 12/09/15)
- * Adding/deleting/updating should work; reflect changes in database
- * Add/remove condition
-* #### Diseases ####
- * URL should match disease database id
-  * Adding/deleting/editing should work; reflect changes in database
- *Search filter
+#### Unauthenticated users ####
+*should see sign-in landing page
+*should not see pages of other states
+*attempts to access other pages via URL are redirected
+*open contact modal
+*send email using Outlook
+*invalid login (not tested with protractor)
+#### Admin users ####
+* should see admin landing
+* should not see pages of other states
+* buttons function correctly (patient portal/create user modal/user portal)
+* should be able to change admin state of another user (not tested with protractor)
+* test sign out (not tested with protractor)
+* open contact modal
+* send mail through Outlook
+#### (Non-admin) users ####
+* should see Patient Portal
+* should not see pages of other states
+* test sign out (not tested with protractor)
+* open contact modal
+* send mail through Outlook
+#### Patient Portal ####
+* should have input box that filters by last name
+* PATIENT PAGE SHOULD DISPLAY INFORMATION (does not currently work 12/09/15)
+* Adding/deleting/updating should work; reflect changes in database
+* Add/remove condition
+#### Diseases ####
+* URL should match disease database id
+ * Adding/deleting/editing should work; reflect changes in database
+* Search filter
