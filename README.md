@@ -12,8 +12,18 @@ The patient portal stores all patient information, including their name, age, an
 ### Contact ###
 There is also a contact us feature so that, if the user encounters an problem or has a question, they can inform the master administrator (our client) and resolve the issue quickly.
 
+![Contact Us modal](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/contactmodal.png)
+
 ### Deployment ###
-The app is hosted externally using the Heroku platform and has been tested using the Protractor framework. 
+The app is hosted externally using the Heroku platform and has been tested using the Protractor framework. The web app is responsive for various devices:
+
+![Large screen](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/notsignedinlgscreen.png)
+
+![iPad](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/notsignedinipadscreen.png)
+
+![iPhone5](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/notsignediniphone5screen.png)
+
+![iPhone5 Logged in and menu open](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/masteradminiphone5.png)
 
 ### Testing with Protractor ###
 Each user state (unauthenticated, admin, and (non-admin) user) has a corresponding conf-*.js file (conf-admin.js and conf-user.js) that signs the user in to the proper state and prepares for testing. 
@@ -34,6 +44,8 @@ Each user state (unauthenticated, admin, and (non-admin) user) has a correspondi
 * open contact modal
 * send mail through Outlook
 
+![Loggedin Admin](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/masteradmin.png)
+
 #### (Non-admin) users ####
 * should see Patient Portal
 * should not see pages of other states
@@ -51,3 +63,7 @@ Each user state (unauthenticated, admin, and (non-admin) user) has a correspondi
 * URL should match disease database id
  * Adding/deleting/editing should work; reflect changes in database
 * Search filter
+
+![Diseases filter](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/diseases.png)
+
+![Diseases/suggestions creation](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/diseases2.png)
