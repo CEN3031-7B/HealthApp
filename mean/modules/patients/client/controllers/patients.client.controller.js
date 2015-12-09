@@ -121,7 +121,6 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
       }
 
       var patient = $scope.patient;
-      console.log(patient.patientInfo);
       patient.patientInfo = $scope.arrObj;
       patient.hasDisease = $scope.hasDisease;
       patient.vitalStats = $scope.numberObj;
@@ -151,7 +150,6 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
           $scope.arrObj = data.patientInfo;
           $scope.numberObj = data.vitalStats;
           $scope.hasDisease = data.hasDisease;
-          console.log(data.hasDisease);
       });   
     };
 
