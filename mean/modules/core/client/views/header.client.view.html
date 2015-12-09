@@ -8,14 +8,14 @@
             <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
             <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
           </button>-->
-          <a ui-sref="home" class="navbar-brand">Health Risk Assessment</a>
+          <a ui-sref="{{logoState()}}" class="navbar-brand">Health Risk Assessment</a>
           <div ng-include="'/modules/core/client/views/modal.client.view.html'" class="navbar-form navbar-left"></div>
           <div id="userInput" class="navbar-form navbar-right">
-            <form name="userForm" class ="form-inline" ng-hide="authentication.user" ng-submit="signin(userForm.$valid)">
+            <form name="userForm" class ="form-inline nav-form" ng-hide="authentication.user" ng-submit="signin(userForm.$valid)">
               <label class="sr-only">Username</label>
-              <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="username" lowercase required>
+              <input type="text" id="username" name="username" class="form-control nav-form" ng-model="credentials.username" placeholder="username" lowercase required>
               <label class="sr-only">Password</label>
-              <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="password" required>
+              <input type="password" id="password" name="password" class="form-control nav-form" ng-model="credentials.password" placeholder="password" required>
               <button type="submit" class="btn btn-primary">Sign in</button>
             </form>
           </div>
