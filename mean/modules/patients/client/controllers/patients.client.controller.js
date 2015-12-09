@@ -5,13 +5,12 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
   function ($scope, $stateParams, $location, Authentication, Patients, Diseases) {
     $scope.authentication = Authentication;
 
-    $scope.arr = ["Date of Birth", "Gender", "Phone Number", "Address", "Name of Plan", "Alternate Phone Number",
-    "Preferred Language", "Name of Medical Practitioner"];
+    $scope.arr = ["Date of Birth", "Gender", "Phone Number", "Address", "Name of Plan", "Alternate Phone Number", "Preferred Language", "Name of Medical Practitioner"];
     $scope.number = ["Weight", "Age", "LDL", "Blood Pressure"];
 
     $scope.arrObj = [];
     $scope.numberObj = [];
-    $scope.dN = [];
+    $scope.hasDisease = [];
 
     $scope.getNameArr = function(i) {
       return $scope.arr[i];
@@ -75,14 +74,12 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
         firstname: this.firstname,
         lastname: this.lastname,
         patientInfo: $scope.arrObj,
-        hasDisease: $scope.dN,
+        hasDisease: $scope.hasDisease,
         vitalStats: $scope.numberObj
       });
 
       // Redirect after save
       patient.$save(function (response) {
-        console.log($scope.arrObj);
-        console.log($scope.numberObj);
         $location.path('patients');
 
          // Clear form Entrys
@@ -90,7 +87,7 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
         $scope.lastname ='';
    			$scope.arrObj = [{}];
    			$scope.numberObj = [{}];
-   			$scope.dN = [{}];
+   			$scope.hasDisease = [{}];
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
@@ -126,7 +123,7 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
       var patient = $scope.patient;
       console.log(patient.patientInfo);
       patient.patientInfo = $scope.arrObj;
-      patient.hasDisease = $scope.dN;
+      patient.hasDisease = $scope.hasDisease;
       patient.vitalStats = $scope.numberObj;
 
       patient.$update(
@@ -148,6 +145,14 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
       $scope.patient = Patients.get({
         patientId: $stateParams.patientId
       });
+
+      $scope.patient.$promise.then(function(data) {     
+
+          $scope.arrObj = data.patientInfo;
+          $scope.numberObj = data.vitalStats;
+          $scope.hasDisease = data.hasDisease;
+          console.log(data.hasDisease);
+      });   
     };
 
     /* Functions for nested arrays that appear on survey page; Add/Update/Delete without interruption */

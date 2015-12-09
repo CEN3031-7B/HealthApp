@@ -20,8 +20,8 @@
           </div>
         </div>
         <div class="form-group" ng-repeat="disease in diseases">
-          <label for="diseaseInput">Do you have {{dN[$index].title=disease.diseaseName}}?</label>
-          <input type="checkbox" name="diseaseInput" ng-model="dN[$index].content" ng-true-value="true" ng-false-value="false">
+          <label for="diseaseInput">Do you have {{hasDisease[$index].title=disease.diseaseName}}?</label>
+          <input type="checkbox" name="diseaseInput" ng-model="hasDisease[$index].content" ng-true-value="true" ng-false-value="false">
         </div>
 <hr>
         <div class="form-group" ng-repeat="ar in arr">
