@@ -14,16 +14,47 @@ var PatientSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  name: {
+  vitalStats: [{
+      title: {
+        type: String,
+        trim: true,
+        required: 'Vital Stats Title cannot be blank'
+      },
+      content: {
+        type: Number,
+        required: 'Vital Stat value is required'
+      }
+  }],
+  hasDisease: [{
+      title: {
+        type: String,
+        trim: true,
+        required: 'Disease title cannot be blank'
+      },
+      content: {
+        type: Boolean,
+        default: 'false'
+        // required: 'Field is required'
+      }
+  }],
+  patientInfo: [{
+    title: {
+      type: String,
+      trim: true,
+      required: 'patient info title cannot be blank'
+    },
+    content: {
+      type: String,
+      required: 'patient info field is required'
+    }
+  }],
+  firstname: {
     type: String,
-    default: '',
-    trim: true,
-    required: 'Name cannot be blank'
+    required: 'First name is required'
   },
-  content: {
+  lastname: {
     type: String,
-    default: '',
-    trim: true
+    required: 'Last name is required'
   },
   user: {
     type: Schema.ObjectId,

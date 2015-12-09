@@ -1,4 +1,4 @@
-<section ng-controller="PatientsController" ng-init="findOne()">
+<section ng-controller="PatientsController" ng-init="findOne(); findDisease()">
   <div class="page-header">
     <h1>Edit Patient</h1>
   </div>
@@ -6,16 +6,36 @@
     <form name="patientForm" class="form-horizontal" ng-submit="update(patientForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label for="name">Name</label>
-          <input name="name" type="text" ng-model="patient.name" id="name" class="form-control" placeholder="John Doe" required>
-          <div ng-messages="patientForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Patient name is required.</p>
+          <h3>First Name:</h3>
+          <input name="firstname" type="text" ng-model="patient.firstname" id="firstname" class="form-control" placeholder="First Name" required>
+          <div ng-messages="patientForm.firstname.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">First Name is required</p>
           </div>
         </div>
-        <div class="form-group">
-          <label for="content">Content</label>
-          <textarea name="content" ng-model="patient.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+
+        <div class="form-group" show-errors>
+          <h3>Last Name:</h3>
+          <input name="lastname" type="text" ng-model="patient.lastname" id="lastname" class="form-control" placeholder="First Name" required>
+          <div ng-messages="patientForm.lastname.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Last Name is required</p>
+          </div>
         </div>
+        <div class="form-group" ng-repeat="disease in diseases">
+          <label for="diseaseInput">Do you have {{hasDisease[$index].title=disease.diseaseName}}?</label>
+          <input type="checkbox" name="diseaseInput" ng-model="hasDisease[$index].content" ng-true-value="true" ng-false-value="false">
+        </div>
+        <hr>
+        <div class="form-group" ng-repeat="ar in arr">
+          <label for="arrInput">{{arrObj[$index].title=getNameArr($index)}}: </label>
+          <input type="text" name="arrInput" ng-model="arrObj[$index].content">
+        </div>
+        <hr>
+        <div class="form-group" ng-repeat="numbe in number">
+          <label for="numberInput">{{numberObj[$index].title=getNameNumber($index)}}: </label>
+          <input name="numberInput" type="text" ng-model="numberObj[$index].content">
+        </div>
+<hr>
+
         <div class="form-group">
           <input type="submit" value="Update" class="btn btn-default">
         </div>
