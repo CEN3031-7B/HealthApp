@@ -29,7 +29,7 @@
         <td>
           <div ng-repeat="disease in diseases">
            <div ng-repeat ="suggestions in disease.suggestions|filter:result">
-             <div ng-repeat="patient in patients">
+             <div ng-repeat="patient in patients|filter:fName |filter:lName">
                <div ng-repeat="hasDisease in patient.hasDisease|filter:search">
                  <div ng-if="disease.diseaseName == hasDisease.title">
                    <div>
@@ -44,7 +44,7 @@
          <td>
            <div ng-repeat="disease in diseases">
              <div ng-repeat ="suggestions in disease.suggestions|filter:result">
-               <div ng-repeat="patient in patients">
+               <div ng-repeat="patient in patients|filter: fName |filter:lName">
                  <div ng-repeat="hasDisease in patient.hasDisease|filter:search">
                    <div ng-if="disease.diseaseName == hasDisease.title">
                      <div>
