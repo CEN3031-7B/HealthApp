@@ -18,12 +18,12 @@ The app is hosted externally using the Heroku platform and has been tested using
 ### Testing with Protractor ###
 The three states for users of the app are unauthenticated, admin, and (non-admin) user. They each have a corresponding conf-*.js file (conf-admin.js and conf-user.js sign in the user to the proper state and prepare for testing). 
 #### Unauthenticated users ####
-*should see sign-in landing page
-*should not see pages of other states
-*attempts to access other pages via URL are redirected
-*open contact modal
-*send email using Outlook
-*invalid login (not tested with protractor)
+* should see sign-in landing page
+* should not see pages of other states
+* attempts to access other pages via URL are redirected
+* open contact modal
+* send email using Outlook
+* invalid login (not tested with protractor)
 #### Admin users ####
 * should see admin landing
 * should not see pages of other states
@@ -46,4 +46,4 @@ The three states for users of the app are unauthenticated, admin, and (non-admin
 #### Diseases ####
 * URL should match disease database id
  * Adding/deleting/editing should work; reflect changes in database
-* Search filter
+* Search filter
