@@ -4,6 +4,10 @@
 #navbreak {
   padding-top: 50px;
 }
+
+#patientInfoTable {
+  width: 50%;
+}
 .content {
   margin-top: 50px;
 }
