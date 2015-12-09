@@ -13,7 +13,7 @@ angular.module('patients').run(['Menus',
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'patients', {
-      title: 'List Prticles',
+      title: 'List Patients',
       state: 'patients.list'
     });
 
