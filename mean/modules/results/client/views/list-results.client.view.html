@@ -13,6 +13,8 @@
         <div ng-repeat="disease in diseases">
             <div ng-repeat ="suggestions in disease.suggestions|filter:result">
               <p> {{suggestions.name}} </p>
+              <!-- Need to add an automatic date referenced, view when creating users
+              Need to add an editable field that has suggested next date -->
               <!-- If we want to add other recommendations -->
               <!-- <p> {{suggestions.specialConditionParameterValue}} </p>
               <p> {{suggestions.specialConditionParameterName}} </p> -->

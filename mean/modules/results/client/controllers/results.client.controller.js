@@ -7,7 +7,7 @@ angular.module('diseases').controller('ResultsController', ['$scope', '$statePar
 
     $scope.resultsFields = ["Education", "Referrels", "Medications", "Laboratory", "Screening", "Vaccinations", "DME", "Medication Adherence"];
 
-    // Find a list of Diseases
+    // Find the list of Diseases
       $scope.find = function () {
         $scope.diseases = Diseases.query();
       };
