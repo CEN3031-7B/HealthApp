@@ -5,12 +5,17 @@
   </div>
   <input type="text" class="patientfilter" ng-model="search.lastname" placeholder="Filter by Last Name"><hr>
   <div class="list-group">
-    <a ng-repeat="patient in patients|filter:search" ng-click="setResults(patient)"  href = "/results" class="list-group-item">
+    <a ng-repeat="patient in patients|filter:search" ng-click="setResults(patient)" href="/results" class="list-group-item">
       <small class="list-group-item-text">
         Created on
         <span ng-bind="patient.created | date:'mediumDate'"></span>
         by
         <span ng-bind="patient.user.displayName"></span>
+        <div class = "pull-right">
+          Results
+          <span class ="glyphicon glyphicon-chevron-right"></span>
+        </div>
+
       </small>
       <h4 class="list-group-item-heading" ng-bind="patient.firstname + ' ' + patient.lastname"></h4>
       <p class="list-group-item-text" ng-bind="patient.content"></p>
