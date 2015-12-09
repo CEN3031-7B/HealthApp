@@ -11,17 +11,10 @@ angular.module('diseases').controller('ResultsController', ['$scope', '$statePar
 
     // Find the list of Diseases
       $scope.find = function () {
-        //$scope.results = [{}];
-
-        // console.log($scope.results.length);
-        // if ($scope.results.length <= 0){
-        //   console.log("entered here");
-          // $scope.
           $scope.diseases = Diseases.query();
           $scope.patients = Patients.query();
           console.log($scope.patients);
 
-        // }
       };
 
       // Find existing Disease
@@ -31,7 +24,6 @@ angular.module('diseases').controller('ResultsController', ['$scope', '$statePar
       	});
       };
 
-
       $scope.updateDate = function(isValid){
         $scope.error = null;
 
@@ -39,9 +31,6 @@ angular.module('diseases').controller('ResultsController', ['$scope', '$statePar
           $scope.$broadcast('show-errors-check-validity', 'tableForm');
           return false;
         }
-
       };
-
-
   }
 ]);
