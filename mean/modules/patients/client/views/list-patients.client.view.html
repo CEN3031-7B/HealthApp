@@ -13,12 +13,9 @@
         by
         <span ng-bind="patient.user.displayName"></span>
         <div class = "pull-right">
-          Results
-          <a class ="glyphicon glyphicon-chevron-right" ng-click="setResults(patient)" href="/results"></a><br><br>
-          Patient info
-          <a class ="glyphicon glyphicon-chevron-right" ui-sref="patients.view({patientId: patient._id})"></a>
+          <a class="btn btn-info" role="button" ng-click="setResults(patient)" href="/results">Results</a>
+          <button class ="btn btn-primary" ui-sref="patients.view({patientId: patient._id})">Patient Info</button>
         </div>
-
       </small>
       <h4 class="list-group-item-heading" ng-bind="patient.firstname + ' ' + patient.lastname"></h4>
       <p class="list-group-item-text" ng-bind="patient.content"></p>
