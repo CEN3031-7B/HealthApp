@@ -1,5 +1,3 @@
-<!-- Sample table of data: Add/Update/Delete on survey page;
-  functionality to be applied to nested arrays ( Patient> Surgeries> surgery1,surgery2,surgery3 ) -->
 <div class="container" ng-controller="PatientsController" ng-init="find()">
   <div class="col-md-12">
   <div class="page-header">
@@ -8,14 +6,20 @@
   <button class="btn" ui-sref="patients.create">Give Survey</button>
   <input type="text" class="patientfilter" ng-model="search.lastname" placeholder="Filter by Last Name"><hr>
   <div class="list-group">
-    <a ng-repeat="patient in patients|filter:search" ui-sref="patients.view({patientId: patient._id})" class="list-group-item">
-    <small class="list-group-item-text">
-      Survey on
-      <span ng-bind="patient.created | date:'mediumDate'"></span>
-      administered by
-      <span ng-bind="patient.user.displayName"></span>
-    </small>
-    <h4 class="list-group-item-heading" ng-bind="patient.firstname + ' ' + patient.lastname"></h4>
+    <a ng-repeat="patient in patients|filter:search" ng-click="setResults(patient)" href="/results" class="list-group-item">
+      <small class="list-group-item-text">
+        Created on
+        <span ng-bind="patient.created | date:'mediumDate'"></span>
+        by
+        <span ng-bind="patient.user.displayName"></span>
+        <div class = "pull-right">
+          Results
+          <span class ="glyphicon glyphicon-chevron-right"></span>
+        </div>
+
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="patient.firstname + ' ' + patient.lastname"></h4>
+      <p class="list-group-item-text" ng-bind="patient.content"></p>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="patients.$resolved && !patients.length">

@@ -1,8 +1,8 @@
 'use strict';
 
 // Patients controller
-angular.module('patients').controller('PatientsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Patients', 'Diseases',
-  function ($scope, $stateParams, $location, Authentication, Patients, Diseases) {
+angular.module('patients').controller('PatientsController', ['$scope', '$stateParams', '$location', '$rootScope','Authentication', 'Patients', 'Diseases',
+  function ($scope, $stateParams, $location, $rootScope, Authentication, Patients,Diseases) {
     $scope.authentication = Authentication;
 
     $scope.arr = ["Date of Birth", "Gender", "Phone Number", "Address", "Name of Plan", "Alternate Phone Number", "Preferred Language", "Name of Medical Practitioner"];
@@ -110,6 +110,11 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
       }
     };
 
+    $scope.setResults = function(patient){
+      $rootScope.fName = patient.firstname;
+      $rootScope.lName = patient.lastname;
+    };
+
     // Update existing Patient
     $scope.update = function (isValid) {
       $scope.error = null;
@@ -145,12 +150,12 @@ angular.module('patients').controller('PatientsController', ['$scope', '$statePa
         patientId: $stateParams.patientId
       });
 
-      $scope.patient.$promise.then(function(data) {     
+      $scope.patient.$promise.then(function(data) {
 
           $scope.arrObj = data.patientInfo;
           $scope.numberObj = data.vitalStats;
           $scope.hasDisease = data.hasDisease;
-      });   
+      });
     };
 
     /* Functions for nested arrays that appear on survey page; Add/Update/Delete without interruption */
