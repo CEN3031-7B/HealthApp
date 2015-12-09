@@ -43,6 +43,8 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var patient = req.patient;
+  patient.firstname = req.body.firstname;
+  patient.lastname = req.body.lastname;
   patient.vitalStats = req.body.vitalStats;
   patient.patientInfo = req.body.patientInfo;
   patient.hasDisease = req.body.hasDisease;
