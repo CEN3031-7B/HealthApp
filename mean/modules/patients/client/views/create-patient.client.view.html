@@ -1,23 +1,42 @@
-<section ng-controller="PatientsController">
+<section ng-controller="PatientsController" ng-init="findDisease()">
   <div class="page-header">
-    <h1>New Patient</h1>
+    <h1>New Patient: Fill Out Minimum Details</h1>
   </div>
   <div class="col-md-12">
     <form name="patientForm" class="form-horizontal" ng-submit="create(patientForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label for="name">name</label>
-          <input name="name" type="text" ng-model="name" id="name" class="form-control" placeholder="John Doe" required>
-          <div ng-messages="patientForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Patient Name is required.</p>
+          <label for="firstname">First name</label>
+          <input name="firstname" type="text" ng-model="firstname" id="firstname" class="form-control" placeholder="First Name" required></input>
+          <div ng-messages="patientForm.firstname.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Patient first name is required.</p>
           </div>
         </div>
-        <div class="form-group">
-          <label for="content">Content</label>
-          <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+        <div class="form-group" show-errors>
+          <label for="lastname">Last name</label>
+          <input name="lastname" type="text" ng-model="lastname" id="lastname" class="form-control" placeholder="Last Name" required></input>
+          <div ng-messages="patientForm.lastname.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Patient last name is required.</p>
+          </div>
         </div>
+        <div class="form-group" ng-repeat="disease in diseases">
+          <label for="diseaseInput">Do you have {{hasDisease[$index].title=disease.diseaseName}}?</label>
+          <input type="checkbox" name="diseaseInput" ng-model="hasDisease[$index].content" ng-true-value="true" ng-false-value="false">
+        </div>
+<hr>
+        <div class="form-group" ng-repeat="ar in arr">
+          <label for="arrInput">{{arrObj[$index].title=getNameArr($index)}}: </label>
+          <input type="text" name="arrInput" ng-model="arrObj[$index].content">
+        </div>
+<hr>
+        <div class="form-group" ng-repeat="numbe in number">
+          <label for="numberInput">{{numberObj[$index].title=getNameNumber($index)}}: </label>
+          <input name="numberInput" type="text" ng-model="numberObj[$index].content">
+        </div>
+<hr>
         <div class="form-group">
-          <input type="submit" class="btn btn-default">
+          <a href="/patients">Back to Patient Portal</a>
+          <input type="submit" class="btn btn-default" label="Next Page">
         </div>
         <div ng-show="error" class="text-danger">
           <strong ng-bind="error"></strong>

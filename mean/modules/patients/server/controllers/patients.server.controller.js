@@ -14,6 +14,11 @@ var path = require('path'),
 exports.create = function (req, res) {
   var patient = new Patient(req.body);
   patient.user = req.user;
+  patient.patientInfo = req.body.patientInfo;
+  patient.hasDisease = req.body.hasDisease;
+  patient.vitalStats = req.body.vitalStats;
+console.log(patient.info);
+
 
   patient.save(function (err) {
     if (err) {
@@ -38,9 +43,33 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var patient = req.patient;
+  patient.vitalStats = req.body.vitalStats;
+  patient.patientInfo = req.body.patientInfo;
+  patient.hasDisease = req.body.hasDisease;
 
-  patient.name = req.body.name;
-  patient.content = req.body.content;
+  // patient.firstname = req.body.firstname;
+  // patient.lastname = req.body.lastname;
+  // patient.dob = req.body.dob;
+  // patient.gender = req.body.gender;
+  // patient.phone = req.body.phone;
+  // patient.address = req.body.address;
+  // patient.planname = req.body.planname;
+  // patient.altphone = req.body.altphone;
+  // patient.planguage = req.body.planguage;
+  // patient.subscriberid = req.body.subscriberid;
+  // patient.besttime = req.body.besttime;
+  // patient.diseaseplan = req.body.diseaseplan;
+  // patient.practitioner = req.body.practitioner;
+  // patient.diabetes = req.body.diabetes;
+  // patient.obesity = req.body.obesity;
+  // patient.tobacco = req.body.tobacco;
+  // patient.copd = req.body.copd;
+  //
+  // patient.weight = req.body.weight;
+  // patient.age = req.body.age;
+  // patient.ldl = req.body.ldl;
+  // patient.bp = req.body.bp;
+
 
   patient.save(function (err) {
     if (err) {
