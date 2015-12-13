@@ -24,6 +24,7 @@ angular.module('core').controller('ModalController', ['$scope','$modal' ,'$http'
             }
             var link = "mailto:me@example.com" + "?subject=" + $scope.message.user + " is concerned!" + "&body=" + $scope.message.text;
             window.location.href = link;
+            $modalInstance.dismiss('cancel');
           };
         },
         size: size
