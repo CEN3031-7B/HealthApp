@@ -3,10 +3,14 @@
   <div class="page-header">
     <h1>List of Patients</h1>
   </div>
-  <button class="btn" ui-sref="patients.create">Give Survey</button>
+  <div class="row">
+    <div class="col-sm-12">
+      <button class="btn btn-silver button_admin" ui-sref="patients.create">Give Survey</button>
+    </div>
+  </div>
   <input type="text" class="patientfilter" ng-model="search.lastname" placeholder="Filter by Last Name"><hr>
   <div class="list-group">
-    <div ng-repeat="patient in patients|filter:search" class="list-group-item">
+    <div ng-repeat="patient in patients|filter:search" ng-show="authentication.user._id == patient.user._id" class="list-group-item">
       <small class="list-group-item-text">
         Created on
         <span ng-bind="patient.created | date:'mediumDate'"></span>
