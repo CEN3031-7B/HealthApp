@@ -3,14 +3,14 @@
   <div class="page-header">
     <h1>Welcome.</h1>
   </div>
-  <div class="admin_landing_button_div row" ng-controller="ModalController">
+  <div class="admin_landing_button_div row" >
     <!-- Manage User modal contents -->
     <script type="text/ng-template" id="admin.modal">
       <div class="modal-header">
         <h3 class="modal-title">Create New User</h3>
       </div>
       <div class = "modal-body">
-        <div ng-controller="AuthenticationController">
+        <div>
           <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin" novalidate autocomplete="off">
             <div class="form-group" show-errors>
               <label for="username">Username</label>

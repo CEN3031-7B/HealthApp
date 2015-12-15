@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator',
-  function ($scope, $state, $http, $location, $window, Authentication, PasswordValidator) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window','$modal', 'Authentication', 'PasswordValidator',
+  function ($scope, $state, $http, $location, $window, $modal, Authentication, PasswordValidator) {
     $scope.authentication = Authentication;
     $scope.popoverMsg = PasswordValidator.getPopoverMsg();
+    $scope.animationsEnabled = true;
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
@@ -37,23 +38,51 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       }
     };
 
-    $scope.signup = function (isValid) {
-      $scope.error = null;
+    $scope.open = function (size, id) {
+      var modalInstance = $modal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: id,
+        controller: function ($scope, $modalInstance) {
+          $scope.cancel = function () {
+            console.log("canceling");
+            $modalInstance.dismiss('cancel');
+          };
 
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'userForm');
+          $scope.signup = function (isValid) {
+            $scope.error = null;
 
-        return false;
-      }
+            if (!isValid) {
+              $scope.$broadcast('show-errors-check-validity', 'userForm');
 
-      $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
-        // If successful we assign the response to the global user model
-        $scope.authentication.user = response;
+              return false;
+            }
 
-        // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
-      }).error(function (response) {
-        $scope.error = response.message;
+            $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
+              // If successful we assign the response to the global user model
+              // $scope.authentication.user = response;
+
+              // And redirect to the previous or home page
+              // $state.go($state.previous.state.name || 'admin_landing', $state.previous.params);
+            });
+            // .error(function (response) {
+            //   $scope.error = response.message;
+            // });
+            $modalInstance.dismiss('cancel');
+          };
+
+          $scope.sendMail = function(isValid) {
+            $scope.error = null;
+
+            if (!isValid) {
+              $scope.$broadcast('show-errors-check-validity', 'userForm');
+              return false;
+            }
+            var link = "mailto:me@example.com" + "?subject=" + $scope.message.user + " is concerned!" + "&body=" + $scope.message.text;
+            window.location.href = link;
+            $modalInstance.dismiss('cancel');
+          };
+        },
+        size: size
       });
     };
 
