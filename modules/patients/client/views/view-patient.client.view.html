@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1 ng-bind="patient.firstname + ' ' + patient.lastname"></h1>
   </div>
-  <div class="pull-right" ng-show="authentication.user._id == patient.user._id">
+  <div class="pull-right">
     <a class="btn btn-primary" ui-sref="patients.edit({patientId: patient._id})">
       <i class="glyphicon glyphicon-edit"></i>
     </a>
@@ -19,17 +19,26 @@
     </em>
   </small>
   <p class="lead" ng-bind="patient.firstname + ' ' + patient.lastname"></p>
-
-  <div class="form-group" ng-repeat="patientInf in patient.patientInfo">
-    <h4 class="list-group-item-heading" ng-bind="patientInf.title + ': ' + patientInf.content"></h4>
-  </div>
-
-  <div class="form-group" ng-repeat="hasD in patient.hasDisease">
-    <h4 class="list-group-item-heading" ng-bind="hasD.title + ': ' + hasD.content"></h4>
-  </div>
-
-  <div class="form-group" ng-repeat="vitalS in patient.vitalStats">
-    <h4 class="list-group-item-heading" ng-bind="vitalS.title + ': ' + vitalS.content"></h4>
-  </div>
-
+  <h2>Patient Information</h2>
+  <table ng-repeat="patientInf in patient.patientInfo" class="table">
+    <tr>
+      <td class="half">{{patientInf.title}}:</td>
+      <td class="half">{{patientInf.content}}</td>
+    </tr>
+  </table>
+  <br>
+  <h2>Vitals</h2>
+  <table ng-repeat="vitalS in patient.vitalStats" class="table">
+    <tr>
+      <td class="half">{{vitalS.title}}:</td>
+      <td class="half">{{vitalS.content}}</td>
+    </tr>
+  </table>
+  <h2>Diseases</h2>
+  <table ng-repeat="hasD in patient.hasDisease" class="table">
+    <tr>
+      <td class="half">{{hasD.title}}?</td>
+      <td class="half">{{hasD.content}}</td>
+    </tr>
+  </table>
 </section>
