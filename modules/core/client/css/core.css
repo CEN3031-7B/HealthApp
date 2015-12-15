@@ -1,6 +1,35 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:700);
-@import url(https://fonts.googleapis.com/css?family=Lora);
+/* Overall*/
+a, a:hover {
+  text-decoration: none;
+}
+.container {
+  height: 100%;
+}
+/* Fonts */
+.navbar-inverse .navbar-brand {
+  font-family: 'Lora', serif;
+  text-transform: uppercase;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus, .navbar-form,
+.navbar-inverse .navbar-nav, .navbar-inverse .navbar-nav, .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > a:focus, .dropdown-menu > li > a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.btn {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
 #navbreak {
   padding-top: 50px;
 }
@@ -41,38 +70,6 @@ a:hover .header-profile-image {
 }
 .has-error .help-inline.error-text {
   display: inline;
-}
-/* OVerall*/
-a, a:hover {
-  text-decoration: none;
-}
-.container {
-  height: 100%;
-}
-/* Fonts */
-.navbar-inverse .navbar-brand {
-  font-family: 'Lora', serif;
-  text-transform: uppercase;
-  font-size: 25px;
-  letter-spacing: 1px;
-}
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .open > a,
-.navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus,
-.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus, .navbar-form,
-.navbar-inverse .navbar-nav, .navbar-inverse .navbar-nav, .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > a:focus, .dropdown-menu > li > a {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-.btn {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-body {
-  font-family: 'Roboto', sans-serif;
 }
 /* Homepage */
 .landing {
@@ -168,6 +165,9 @@ textarea {
   resize: vertical;
 }
 /* Buttons */
+.btn-silver:hover {
+  background-color: #eeeeee;
+}
 .btn, .alert {
   background-image: none;
   border: none;
@@ -181,24 +181,46 @@ textarea {
   font-size: 16px;
   margin: 40px 0px;
   width: 100%;
+  padding: 30px;
 }
 /* Admin landing modal */
 .makeadmin {
 }
 /* Patient portal */
-input.patientfilter {
+input.patientfilter, input.diseasefilter, input.userfilter {
   width: 100%;
+}
+/* Change password */
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus {
+  background-color: transparent;
+  color: #337ab7;
+}
+.nav-pills > li.active > a:hover {
+  background-color: #eeeeee;
+  color: #23527c;
 }
 /* Responsiveness */
 h1 {
   padding-top: 40px;
 }
-@media (max-width: 382px) {
+@media (max-width: 385px) {
   .navbar-inverse .navbar-brand {
     font-size: 15px;
   }
   form.nav-form {
       display: inline-block;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 15px;
+  }
+  h5 {
+    font-size: 10px;
+  }
+  .description {
+    line-height: 17px;
   }
 }
 @media (min-width: 383px) {
@@ -207,9 +229,6 @@ h1 {
   }
 }
 @media (max-width: 767px) {
-  input.nav-form {
-      width: 80%;
-  }
   .navbar-inverse .navbar-collapse,
   .navbar-inverse .navbar-form,
   .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
@@ -252,7 +271,7 @@ h1 {
     padding: 10px;
   }
   .welcome {
-    padding-top: 80px;
+    padding-top: 65px;
   }
 }
 @media (max-width: 841px) {
