@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1 ng-bind="patient.firstname + ' ' + patient.lastname"></h1>
   </div>
-  <div class="pull-right" ng-show="authentication.user._id == patient.user._id">
+  <div class="pull-right">
     <a class="btn btn-primary" ui-sref="patients.edit({patientId: patient._id})">
       <i class="glyphicon glyphicon-edit"></i>
     </a>
@@ -22,7 +22,7 @@
   <h2>Patient Information</h2>
   <table ng-repeat="patientInf in patient.patientInfo" class="table">
     <tr>
-      <td class="half">{{patientInf.title)}}:</td>
+      <td class="half">{{patientInf.title}}:</td>
       <td class="half">{{patientInf.content}}</td>
     </tr>
   </table>
