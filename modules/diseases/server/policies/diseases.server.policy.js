@@ -22,6 +22,8 @@ exports.invokeRolesPolicies = function () {
       permissions: '*'
     }]
   }, {
+
+    //User permissions are set to '*' due to the definition of users having admin defined as a boolean
     roles: ['user'],
     allows: [{
       resources: '/api/diseases',

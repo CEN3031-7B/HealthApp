@@ -19,6 +19,8 @@
     </em>
   </small>
   <p class="lead" ng-bind="patient.firstname + ' ' + patient.lastname"></p>
+
+  <!-- Information for the table fields are referenced in arrays, should be changed to pull and store from database so the user can add fields -->
   <h2>Patient Information</h2>
   <table ng-repeat="patientInf in patient.patientInfo" class="table">
     <tr>
