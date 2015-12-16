@@ -26,13 +26,13 @@
           <th>Conditions for this treatment</th>
           <th></th>
         </tr>
-    </thead>
-    <tbody ng-repeat="sugg in disease.suggestions">
-      <tr>
-        <td><p ng-bind="sugg.name"></p></td>
-        <td><p ng-bind="sugg.field"></p></td>
-        <td><p class="conditions" ng-bind="sugg.specialConditionParameterName"><p  class="conditions" ng-bind="sugg.specialConditionParameterValue"></p></td>
-      </tr>
-    </tbody>
+      </thead>
+      <tbody>
+        <tr ng-repeat="sugg in disease.suggestions">
+          <td><p ng-bind="sugg.name"></p></td>
+          <td><p ng-bind="sugg.field"></p></td>
+          <td><p class="conditions" ng-bind="sugg.specialConditionParameterName"><p  class="conditions" ng-bind="sugg.specialConditionParameterValue"></p></td>
+        </tr>
+      </tbody>
     </table>
 </section>
