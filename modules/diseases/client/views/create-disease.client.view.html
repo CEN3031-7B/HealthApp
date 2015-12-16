@@ -39,12 +39,14 @@
 					</tr>
 					<tr><td><button class="btn btn-info suggestion" type="button" ng-click="addSuggestion()">Add Suggestion</button></td></tr>
 				</table>
-        		<div class="form-group">
- 					<button type="submit" class="btn btn-primary submit">Submit</button>
-				</div>
-        		<div ng-show="error" class="text-danger">
-          			<strong ng-bind="error"></strong>
-        		</div>
+				<div class="col-md-12">
+        	<div class="form-group">
+        		<button type="submit" class="btn btn-primary submit">Submit</button>
+					</div>
+        	<div ng-show="error" class="text-danger">
+          	<strong ng-bind="error"></strong>
+        	</div>
+        </div>
 			</fieldset>
 		</form>
 	</div>

@@ -1,6 +1,6 @@
 exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['diseases.js'],
+  specs: ['admin.js', 'diseases.js'],
   // Login as admin before testing
   onPrepare: function() {
     browser.get('https://healthapp-cen3031-7b.herokuapp.com/');
