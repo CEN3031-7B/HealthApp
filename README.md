@@ -94,6 +94,7 @@ Each user state (unauthenticated, admin, and (non-admin) user) has a correspondi
 * test sign out (manually; not tested with protractor)
 * open contact modal
 * send mail through Outlook
+
 ##### Disease tests #####
 * URL should match disease database id
  * adding/deleting/editing should work; reflect changes in database
@@ -113,6 +114,7 @@ Each user state (unauthenticated, admin, and (non-admin) user) has a correspondi
 * test sign out (manually; not tested with protractor)
 * open contact modal
 * send mail through Outlook
+
 ##### Patient tests #####
 * should have input box that filters by last name
 * patient portal should display information of the patients
