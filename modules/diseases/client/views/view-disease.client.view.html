@@ -19,16 +19,20 @@
   <p class="lead" ng-bind="disease.diseaseName"> </p>
   <h3>Suggested Treatments</h3>
     <table class="table table-striped">
-      <tr>
-        <th>Name</th>
-        <th>Field</th>
-        <th>Conditions for this treatment</th>
-        <th></th>
-      </tr>
-      <tr ng-repeat="sugg in disease.suggestions">
-        <td><p ng-bind="sugg.name"></p></td>
-        <td><p ng-bind="sugg.field"></p></td>
-        <td><p class="conditions" ng-bind="sugg.specialConditionParameterName"><p  class="conditions" ng-bind="sugg.specialConditionParameterValue"></p></td>
-      </tr>
-    </tablle>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Field</th>
+          <th>Conditions for this treatment</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="sugg in disease.suggestions">
+          <td><p ng-bind="sugg.name"></p></td>
+          <td><p ng-bind="sugg.field"></p></td>
+          <td><p class="conditions" ng-bind="sugg.specialConditionParameterName"><p  class="conditions" ng-bind="sugg.specialConditionParameterValue"></p></td>
+        </tr>
+      </tbody>
+    </table>
 </section>
