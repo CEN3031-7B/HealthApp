@@ -70,9 +70,6 @@ describe('Disease Portal', function() {
 		var search = element(by.model('search.diseaseName'));
 		search.sendKeys(TEST_NAME);
 
-		var name = element(by.binding('disease.diseaseName'));
-		name.getText().then(function(text) {
-		  expect(TEST_NAME != name);
-		});
+		expect(element(by.binding('disease.diseaseName')).isPresent()).toBeFalsy();
 	});
 });
