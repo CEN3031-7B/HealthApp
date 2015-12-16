@@ -1,5 +1,6 @@
 # Health App (CEN3031 7-B Project) #
 ### https://healthapp-cen3031-7b.herokuapp.com/
+https://www.pivotaltracker.com/n/projects/1430460
 
 ## About ##
 This health app is a MEAN.JS-based application that allows a healthcare professional to interview patients based on a series of questions in the form of a survey. The survey then stores the information in the form of a results page that indicates the patient's health risk, determined by standard health risks. For example, a patient would be at risk for diabetes if they were of a certain age or weight and if they did not exercise regularly. 
@@ -12,10 +13,12 @@ The patient portal stores all patient information, including their name, age, an
 
 ### Diseases ###
 The disease page can be accessed from the dropdown menu. Each disease and their creation date are listed, and they can be filtered by the disease name. 
+
 *Demonstration of disease filter:*
 ![Diseases filter](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/diseases.png)
 
 For scalability, or if the user cannot find a certain disease, they may create a new disease in the database. To do so, the user can complete a form that includes information such as the disease's name and suggested treatments for that disease. The user is able to categorize and add special parameters to the suggested treatment. 
+
 *Keeping in mind the site's scalability, diseases can be added:*
 ![Diseases/suggestions creation](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/diseases2.png)
 
@@ -41,6 +44,7 @@ The user portal lists the users that have signed up for an account for the web a
 
 ### Contact ###
 There is also a contact us feature so that, if the user encounters an problem or has a question, they can inform the master administrator (our client) and resolve the issue quickly.
+
 *Completed fields in Contact Us modal appear in the email client:*
 ![Contact Us modal](https://raw.githubusercontent.com/CEN3031-7B/HealthApp/master/healthappscreenshots/contactmodal.png)
 
@@ -76,6 +80,8 @@ Each user state (unauthenticated, admin, and (non-admin) user) has a correspondi
 * send email using Outlook
 * invalid login (manually; not tested with protractor)
 
+---------------------------------
+
 ###### run protractor conf-admin.js ######
 ##### Admin user tests #####
 * should see admin landing
@@ -97,6 +103,8 @@ Each user state (unauthenticated, admin, and (non-admin) user) has a correspondi
 * verifies that the edit is present in the disease view
 * tests deletion of disease
 * verifies that the disease that was created is no longer in the list view
+
+---------------------------------
 
 ###### run protractor conf-user.js ######
 ##### (Non-admin) user tests #####
